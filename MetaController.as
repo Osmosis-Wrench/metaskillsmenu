@@ -35,7 +35,7 @@ class MetaController extends MovieClip
 		super();
 		menuMoving = false;
 		currentSelection = 0;
-		
+		option0 = OptionsContainer.option0;
 		
 		FocusHandler.instance.setFocus(this, 0);
 		
@@ -75,6 +75,11 @@ class MetaController extends MovieClip
 			if (Mouse.getTopMostEntity() == this)
 				_parent.onInputRectClick(4);
 		};
+	}
+	
+	private function onLoad(): Void
+	{
+		option0.defineOption("Hand To Hand", "Pugilist is specialized in Hand To Hand combat. A true warrior does not needs a sword.", "HandTohandSymbol.dds");
 	}
 	
 	function InitExtensions(): Void

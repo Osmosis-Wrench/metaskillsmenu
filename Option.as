@@ -4,27 +4,68 @@ import gfx.ui.InputDetails;
 import gfx.ui.NavigationCode;
 import Shared.GlobalFunc;
 import Components.Meter;
+import flash.display.DisplayObject;
 import skse;
 
 class Option extends MovieClip
 {
-  /*Stage Elements */
-	
-  /* Variables */
-	public var GraphicHolder: MovieClip;
+	/*Stage Elements */
+
+	/* Variables */
+	var Option_GraphicHolder:MovieClip;
+	var backup: MovieClip;
+	var Option_Name:TextField;
+	var Option_Description:TextField;
 
 	function Option()
 	{
 		super();
-		this.loadCustomContent()
+	}
+
+	public function defineOption(optionName:String, optionDescription:String, image_source:String):Void
+	{
+		optionName != null ? Option_Name.text = optionName : Option_Name.text = "FAIL: No Skill Name";
+		trace(Option_Description.text);
+		Option_Description.text = optionDescription;
+		trace(Option_Description.text);
+		//optionDescription != null ? Option_Description.text = optionDescription : Option_Description.text = "A Custom Skill Tree";
+		if (image_source != null){
+			loadCustomContent(image_source)
+		}
 	}
 	
-	function loadCustomContent(): Void
+	public function loadCustomContent(a_source:String): Void
 	{
-		trace(1);
-		var mcHolder:MovieClip = createEmptyMovieClip("mcHolder", getNextHighestDepth());
-		var mcLoader:MovieClipLoader = new MovieClipLoader();
-		mcLoader.addListener(this);
-		mcLoader.loadClip("HandTohandSymbol.dds", mcHolder);
+		var holder_x = 0.15;
+		var holder_y = -6.7;
+		var holder_width = 250;
+		var holder_height = 250;
+		
+		var imageListener:Object = new Object();
+		imageListener.onLoadInit   = function(target_mc:MovieClip) {
+			target_mc._width = holder_width;
+			target_mc._height = holder_height;
+			Option_GraphicHolder._x = Math.round(holder_x + (holder_width - target_mc._width)/2);
+			Option_GraphicHolder._y = Math.round(holder_y + (holder_height - target_mc._height)/2);
+			target_mc._x = target_mc._x-125;
+			target_mc._y = target_mc._y-110;
+			trace(target_mc._x);
+			trace(target_mc._y);
+		};
+		var imageLoader:MovieClipLoader = new MovieClipLoader();
+		imageLoader.addListener(imageListener);
+		imageLoader.loadClip(a_source, Option_GraphicHolder);
 	}
+
+	public function oldloadCustomContent(a_source:String): Void
+	{
+		var imageListener:Object = new Object();
+		imageListener.onLoadComplete  = function(target_mc:MovieClip) {
+			trace("stuff");
+		};
+		var imageLoader:MovieClipLoader = new MovieClipLoader();
+		imageLoader.addListener(imageListener);
+		imageLoader.loadClip(a_source, Option_GraphicHolder);
+	}
+	
 }
