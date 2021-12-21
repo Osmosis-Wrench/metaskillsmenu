@@ -11,23 +11,20 @@ class Option extends MovieClip
   /*Stage Elements */
 	
   /* Variables */
-  	private var _customContent: MovieClip;
-	private var _customContentX: Number = 0;
-	private var _customContentY: Number = 0;
 	public var GraphicHolder: MovieClip;
 
 	function Option()
 	{
 		super();
+		this.loadCustomContent()
 	}
 	
-	public function loadCustomContent(a_source: String): Void
+	function loadCustomContent(): Void
 	{
-		var myGraphic: MovieClip = GraphicHolder;
-		
-		_customContent = myGraphic.createEmptyMovieClip("customContent", this.getNextHighestDepth());
-		_customContent._x = _customContentX;
-		_customContent._y = _customContentY;
-		_customContent.loadMovie(a_source);
+		trace(1);
+		var mcHolder:MovieClip = createEmptyMovieClip("mcHolder", getNextHighestDepth());
+		var mcLoader:MovieClipLoader = new MovieClipLoader();
+		mcLoader.addListener(this);
+		mcLoader.loadClip("HandTohandSymbol.dds", mcHolder);
 	}
 }
