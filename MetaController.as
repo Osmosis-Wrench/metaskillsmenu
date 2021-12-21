@@ -15,11 +15,7 @@ class MetaController extends MovieClip
 	/*Stage Elements */
 	var OptionsContainer:MovieClip;
 	var option0: MovieClip;
-	var option1: MovieClip;
-	var option2: MovieClip;
-	var option3: MovieClip;
-	var option4: MovieClip;
-
+	
 	var CenterMouseOver:MovieClip;
 	var LeftMouseOver:MovieClip;
 	var RightMouseOver:MovieClip;

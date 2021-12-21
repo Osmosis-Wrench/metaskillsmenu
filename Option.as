@@ -25,12 +25,9 @@ class Option extends MovieClip
 	public function defineOption(optionName:String, optionDescription:String, image_source:String):Void
 	{
 		optionName != null ? Option_Name.text = optionName : Option_Name.text = "FAIL: No Skill Name";
-		trace(Option_Description.text);
-		Option_Description.text = optionDescription;
-		trace(Option_Description.text);
-		//optionDescription != null ? Option_Description.text = optionDescription : Option_Description.text = "A Custom Skill Tree";
+		optionDescription != null ? Option_Description.text = optionDescription : Option_Description.text = "A Custom Skill Tree";
 		if (image_source != null){
-			loadCustomContent(image_source)
+			loadCustomContent(image_source);
 		}
 	}
 	
