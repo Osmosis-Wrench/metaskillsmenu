@@ -125,12 +125,12 @@ class MetaController extends MovieClip
 	{
 		if (direction == 1)
 		{
-			var desired_x = OptionsContainer._x - 300;
+			var desired_x = OptionsContainer._x - 366.5;
 			currentSelection == 4 ? currentSelection = 0 : currentSelection++;
 		}
 		if (direction == -1)
 		{
-			var desired_x = OptionsContainer._x + 300;
+			var desired_x = OptionsContainer._x + 366.5;
 			currentSelection == 0 ? currentSelection = 4 : currentSelection--;
 		}
 		trace(currentSelection);

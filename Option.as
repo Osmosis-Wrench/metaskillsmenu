@@ -49,8 +49,6 @@ class Option extends MovieClip
 			Option_GraphicHolder._y = Math.round(holder_y + (holder_height - target_mc._height)/2);
 			target_mc._x = target_mc._x-125;
 			target_mc._y = target_mc._y-110;
-			trace(target_mc._x);
-			trace(target_mc._y);
 		};
 		var imageLoader:MovieClipLoader = new MovieClipLoader();
 		imageLoader.addListener(imageListener);
