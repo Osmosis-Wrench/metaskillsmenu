@@ -23,7 +23,6 @@ class OptionsContainer extends MovieClip
 			var lastOne = this["option"+(count - 1)];
 			thisOne._y = lastOne._y;
 			thisOne._x = lastOne._x + lastOne._width;
-			trace(count);
 			count++;
 		}
 		//this.attachMovie('Option','option1',this.getNextHighestDepth());
