@@ -25,8 +25,7 @@ function startup()
     ConsoleUtil.PrintMessage(a.length)
     int x = JArray.objectWithStrings(a)
     jvalue.writetofile(x, "metaMenuTest1.json")
-    
+
     int y = JValue.evalLuaObj(x, "return msm.returnSkillTreeObject(jobject)")
     jvalue.writetofile(y, "metaMenuTest2.json")
 endfunction
-
