@@ -1,0 +1,6 @@
+
+skyrim/SkyrimSE.code-workspace
+skyrim/.vscode/launch.json
+skyrim/.vscode/tasks.json
+*.bat
+*.pex
