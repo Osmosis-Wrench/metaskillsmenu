@@ -30,10 +30,24 @@ function startup()
     jvalue.writetofile(y, "metaMenuTest2.json")
 
     string filekey = jmap.nextkey(y)
+
+    int p = Jmap.Object()
     while filekey
         int fileobj = jmap.getobj(y, filekey)
+        int retobj = jvalue.deepcopy(fileobj)
+
+        string modNameThing = jmap.getstr(fileobj, "Name") + " " +StringUtil.Split(filekey, ".")[1]
+
         string skydome = jmap.getstr(fileobj, "Skydome")
-        
+        if JContainers.fileExistsAtPath("data\\textures\\"+skydome)
+            ConsoleUtil.PrintMessage("Found "+skydome)
+            jmap.setstr(retobj, "icon_loc", "data\\textures\\"+skydome)
+            jmap.setint(retobj, "Skydome_exists", true as int)
+        endif
+
+        jmap.setobj(p, modNameThing, retobj)
         filekey = jmap.nextkey(y, filekey)
     endwhile
+    jvalue.writetofile(p, "metaMenuTest3.json")
+
 endfunction

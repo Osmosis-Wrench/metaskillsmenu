@@ -51,16 +51,4 @@ class Option extends MovieClip
 		imageLoader.addListener(imageListener);
 		imageLoader.loadClip(a_source, Option_GraphicHolder);
 	}
-
-	public function oldloadCustomContent(a_source:String): Void
-	{
-		var imageListener:Object = new Object();
-		imageListener.onLoadComplete  = function(target_mc:MovieClip) {
-			trace("stuff");
-		};
-		var imageLoader:MovieClipLoader = new MovieClipLoader();
-		imageLoader.addListener(imageListener);
-		imageLoader.loadClip(a_source, Option_GraphicHolder);
-	}
-	
 }

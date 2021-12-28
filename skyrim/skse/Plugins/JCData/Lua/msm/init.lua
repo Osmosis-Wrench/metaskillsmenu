@@ -23,7 +23,7 @@ function msm.returnSkillTreeObject(collection)
             t[k] = string.gsub(t[k], "\n", "")
             t[k] = string.gsub(t[k], " \\ ", "")
             t[k] = string.gsub(t[k], "\"", "")
-            t[k] = string.gsub(t[k], ".nif", ".dds")
+            --t[k] = string.gsub(t[k], ".nif", ".dds")
             t[k] = trim(t[k])
         end
         if t["Name"] then
@@ -32,7 +32,8 @@ function msm.returnSkillTreeObject(collection)
             r["Description"] = t["Description"]
 
             r["Skydome"] = t["Skydome"]
-            r["Skydome_exists"] = 0
+            r["Skydome_tex_file_possible_loc"] = "data\\textures\\" + string.gsub(t["Skydome"], ".nif", ".dds")
+            r["icon_exists"] = 0
             r["icon_loc"] = ""
 
             r["ShowMenuFile"] = t["ShowMenuFile"]
