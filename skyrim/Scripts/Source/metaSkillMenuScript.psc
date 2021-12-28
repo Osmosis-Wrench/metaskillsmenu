@@ -28,4 +28,12 @@ function startup()
 
     int y = JValue.evalLuaObj(x, "return msm.returnSkillTreeObject(jobject)")
     jvalue.writetofile(y, "metaMenuTest2.json")
+
+    string filekey = jmap.nextkey(y)
+    while filekey
+        int fileobj = jmap.getobj(y, filekey)
+        string skydome = jmap.getstr(fileobj, "Skydome")
+        
+        filekey = jmap.nextkey(y, filekey)
+    endwhile
 endfunction
