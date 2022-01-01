@@ -21,7 +21,7 @@ function startup()
         ConsoleUtil.PrintMessage("test123")
     endif
 
-    string[] a = JContainers.contentsOfDirectoryAtPath("data\\NetScriptFramework\\Plugins\\", ".txt")
+    string[] a = JContainers.contentsOfDirectoryAtPath("data/NetScriptFramework/Plugins/", ".txt")
     ConsoleUtil.PrintMessage(a.length)
     int x = JArray.objectWithStrings(a)
     jvalue.writetofile(x, "metaMenuTest1.json")
@@ -36,13 +36,17 @@ function startup()
         int fileobj = jmap.getobj(y, filekey)
         int retobj = jvalue.deepcopy(fileobj)
 
+        if (jmap.getint(fileobj, "icon_exists") as bool)
+            return ; if file exists, don't bother reprocessing.
+        endif
+
         string modNameThing = jmap.getstr(fileobj, "Name") + " " +StringUtil.Split(filekey, ".")[1]
 
-        string skydome = jmap.getstr(fileobj, "Skydome")
-        if JContainers.fileExistsAtPath("data\\textures\\"+skydome)
-            ConsoleUtil.PrintMessage("Found "+skydome)
-            jmap.setstr(retobj, "icon_loc", "data\\textures\\"+skydome)
-            jmap.setint(retobj, "Skydome_exists", true as int)
+        string skydome_loc = jmap.getstr(fileobj, "Skydome_tex_file_possible_loc")
+        if JContainers.fileExistsAtPath(skydome_loc)
+            ConsoleUtil.PrintMessage("Found "+skydome_loc)
+            jmap.setstr(retobj, "icon_loc", skydome_loc)
+            jmap.setint(retobj, "icon_exists", true as int)
         endif
 
         jmap.setobj(p, modNameThing, retobj)

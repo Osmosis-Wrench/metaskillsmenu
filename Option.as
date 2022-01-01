@@ -22,7 +22,7 @@ class Option extends MovieClip
 		super();
 	}
 
-	public function defineOption(optionName:String, optionDescription:String, image_source:String):Void
+	public function defineOption(optionName:String, optionDescription:String, image_source:String, callbackKeyName:String):Void
 	{
 		optionName != null ? Option_Name.text = optionName : Option_Name.text = "FAIL: No Skill Name";
 		optionDescription != null ? Option_Description.text = optionDescription : Option_Description.text = "A Custom Skill Tree";

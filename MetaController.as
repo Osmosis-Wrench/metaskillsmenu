@@ -14,25 +14,27 @@ class MetaController extends MovieClip
 	static var directionLableMap:Array = ["None", "Center", "Left", "Right", "Exit"];
 	/*Stage Elements */
 	var OptionsContainer:MovieClip;
-	var option0: MovieClip;
-	
+	var option0:MovieClip;
+
 	var CenterMouseOver:MovieClip;
 	var LeftMouseOver:MovieClip;
 	var RightMouseOver:MovieClip;
 	var ExitMouseOver:MovieClip;
-	var currentSelection: Number;
-	var selection_shine: MovieClip;
-	var left_shine: MovieClip;
-	var right_shine: MovieClip;
-	var exit_shine: MovieClip;
+	var currentSelection:Number;
+	var selection_shine:MovieClip;
+	var left_shine:MovieClip;
+	var right_shine:MovieClip;
+	var exit_shine:MovieClip;
 
 	var menuMoving:Boolean;
+	var id:Boolean;
 
 	/* Variables */
 
 	function MetaController()
 	{
 		super();
+		id = true;
 		this._visible = false;
 		menuMoving = false;
 		currentSelection = 0;
@@ -40,13 +42,12 @@ class MetaController extends MovieClip
 		left_shine._alpha = 0;
 		right_shine._alpha = 0;
 		exit_shine._alpha = 0;
-		trace("a" + selection_shine.alpha);
-		
 		option0 = OptionsContainer.option0;
-		GameDelegate.call("PlaySound", ["UIMenuBladeOpenSD"]);
 		
-		FocusHandler.instance.setFocus(this, 0);
-		
+		GameDelegate.call("PlaySound",["UIMenuBladeOpenSD"]);
+
+		FocusHandler.instance.setFocus(this,0);
+
 		CenterMouseOver.onRollOver = function()
 		{
 			_parent.onInputRectMouseOver(1);
@@ -54,7 +55,9 @@ class MetaController extends MovieClip
 		CenterMouseOver.onMouseDown = function()
 		{
 			if (Mouse.getTopMostEntity() == this)
+			{
 				_parent.onInputRectClick(1);
+			}
 		};
 		LeftMouseOver.onRollOver = function()
 		{
@@ -63,7 +66,9 @@ class MetaController extends MovieClip
 		LeftMouseOver.onMouseDown = function()
 		{
 			if (Mouse.getTopMostEntity() == this)
+			{
 				_parent.onInputRectClick(2);
+			}
 		};
 		RightMouseOver.onRollOver = function()
 		{
@@ -72,7 +77,9 @@ class MetaController extends MovieClip
 		RightMouseOver.onMouseDown = function()
 		{
 			if (Mouse.getTopMostEntity() == this)
+			{
 				_parent.onInputRectClick(3);
+			}
 		};
 		ExitMouseOver.onRollOver = function()
 		{
@@ -81,45 +88,97 @@ class MetaController extends MovieClip
 		ExitMouseOver.onMouseDown = function()
 		{
 			if (Mouse.getTopMostEntity() == this)
+			{
 				_parent.onInputRectClick(4);
+			}
 		};
 	}
-	
-	private function onLoad(): Void
+	private function onLoad():Void
 	{
-		GameDelegate.call("PlaySound", ["UIMenuFocus"]);
+		GameDelegate.call("PlaySound",["UIMenuFocus"]);
 		skse.SendModEvent("MetaSkillMenu_Open");
-		this._visible = true;
-		option0.defineOption("Hand To Hand", "Pugilist is specialized in Hand To Hand combat. A true warrior does not needs a sword.", "HandTohandSymbol.dds");
+		getData();
 	}
 	
-	function InitExtensions(): Void
+	public function readyToShow(): Void
 	{
-		
+		this._visible = true;
 	}
-	//["None", "Center", "Left", "Right", "Exit"];
+
+	private function getData():Void
+	{
+		var openData:LoadVars = new LoadVars();
+		openData.onLoad = function(success:Boolean)
+		{
+			if (!success)
+			{
+				trace("Couldn't find the file.");
+			}
+		};
+		openData.onData = function(jsonData)
+		{
+			var self:MovieClip = _root.MetaController_mc;
+			var o:Object = JSON.parse(jsonData);
+			var i;
+			
+			var size = -1; // this is dumb.
+			for (i in o)
+			{
+				size++;
+			}
+			
+			self.OptionsContainer.setTotalCount(size);
+			
+			for (i in o)
+			{
+				var jcallbackName = i;
+				var jname = o[i]["Name"];
+				var jdescription = o[i]["Description"];
+				var jiconloc;
+				if (o[i]["icon_exists"] == 1)
+				{
+					jiconloc = o[i]["icon_loc"];
+				}
+				//trace(jcallbackName + " | Name: " + jname + " | Desc: " + jdescription + " | iconloc: " + jiconloc);
+				self.OptionsContainer.setOptionObjectInfo(size, jname, jdescription, jiconloc, jcallbackName);
+				size--;
+			}
+			self.readyToShow();
+			
+		};
+		openData.load("metaMenuTest3.json");
+	}
+
+	function InitExtensions():Void
+	{
+
+	}
+	
 	function onInputRectMouseOver(aiSelection:Number):Void
 	{
 		var shineAlpha = 5;
-		if ( aiSelection == 1 )
+		if (aiSelection == 1)
 		{
 			selection_shine._alpha = shineAlpha;
 			left_shine._alpha = 0;
 			right_shine._alpha = 0;
 			exit_shine._alpha = 0;
-		} else if ( aiSelection == 2 )
+		}
+		else if (aiSelection == 2)
 		{
 			selection_shine._alpha = 0;
 			left_shine._alpha = shineAlpha;
 			right_shine._alpha = 0;
 			exit_shine._alpha = 0;
-		} else if ( aiSelection == 3 )
+		}
+		else if (aiSelection == 3)
 		{
 			selection_shine._alpha = 0;
 			left_shine._alpha = 0;
 			right_shine._alpha = shineAlpha;
 			exit_shine._alpha = 0;
-		} else if ( aiSelection == 4 )
+		}
+		else if (aiSelection == 4)
 		{
 			selection_shine._alpha = 0;
 			left_shine._alpha = 0;
@@ -146,14 +205,14 @@ class MetaController extends MovieClip
 				OpenCustomSkillMenu();
 			}
 		}
-		if ( aiSelection == 4)
+		if (aiSelection == 4)
 		{
 			menuMoving = true;
 			var onCompleteMove:Function = Delegate.create(this, function ()
 			{
-				GameDelegate.call("PlaySound", ["UIMenuBladeCloseSD"]);
-				skse.SendModEvent("MetaSkillMenu_Close");
-				skse.CloseMenu("CustomMenu");
+			GameDelegate.call("PlaySound",["UIMenuBladeCloseSD"]);
+			skse.SendModEvent("MetaSkillMenu_Close");
+			skse.CloseMenu("CustomMenu");
 			});
 			Tween.LinearTween(this,"_y",this._x,-400,0.2,onCompleteMove);
 		}
@@ -182,8 +241,8 @@ class MetaController extends MovieClip
 		Tween.LinearTween(OptionsContainer,"_x",OptionsContainer._x,desired_x,0.2,onCompleteMove);
 		GameDelegate.call("PlaySound",["UIMenuFocus"]);
 	}
-	
-	function OpenCustomSkillMenu(): Void
+
+	function OpenCustomSkillMenu():Void
 	{
 		trace(420);
 	}

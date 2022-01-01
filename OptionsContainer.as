@@ -11,23 +11,33 @@ import JSON;
 
 class OptionsContainer extends MovieClip
 {
-	var option0:MovieClip;
-
+	var option0: MovieClip;
+	
 	function OptionsContainer()
 	{
 		super();
+	}
+
+	public function setTotalCount(size:Number):Void
+	{
+		trace(size);
 		var count = 1;
-		while(count <= 100){
-			this.attachMovie('Option', 'option'+count, this.getNextHighestDepth());
-			var thisOne = this["option"+count];
-			var lastOne = this["option"+(count - 1)];
+		while (count <= size)
+		{
+			this.attachMovie('Option','option' + count,this.getNextHighestDepth());
+			var thisOne = this["option" + count];
+			var lastOne = this["option" + (count - 1)];
+			trace(lastOne);
 			thisOne._y = lastOne._y;
 			thisOne._x = lastOne._x + lastOne._width;
 			count++;
 		}
-		//this.attachMovie('Option','option1',this.getNextHighestDepth());
-		//trace(this["option"+"1"]);
-		//option1._x = option0._x + option0._width;
-		//option1._y = option0._y;
+	}
+	
+	public function setOptionObjectInfo(optionNumber:Number, optionName:String, optionDescription:String, image_source:String, callbackKeyName:String) : Void
+	{
+		trace(optionNumber);
+		var uOption = this["option"+optionNumber];
+		uOption.defineOption(optionName, optionDescription, image_source, callbackKeyName);
 	}
 }

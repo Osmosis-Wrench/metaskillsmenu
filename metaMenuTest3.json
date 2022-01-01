@@ -1,0 +1,372 @@
+{
+  "Academia LOTDSkillTreesAcademia": {
+    "Description": "The pursuit of research, education, and scholarship.",
+    "icon_exists": 1,
+    "icon_loc": "data/textures/LOTD Skill Trees/academia.dds",
+    "Name": "Academia",
+    "ShowMenuFile": "LOTD Skill Trees.esp",
+    "ShowMenuId": "0x802",
+    "Skydome": "LOTD Skill Trees/academia.nif",
+    "Skydome_tex_file_possible_loc": "data/textures/LOTD Skill Trees/academia.dds"
+  },
+  "Alchemist SenAlchemist": {
+    "Description": "",
+    "icon_exists": 0.0,
+    "icon_loc": "",
+    "Name": "Alchemist",
+    "ShowMenuFile": "HuishenGameplayOverhaul.esp",
+    "ShowMenuId": "0x0ABD9",
+    "Skydome": "meshes\\SenPerkTree\\INTVampirePerkSkydome.nif",
+    "Skydome_tex_file_possible_loc": "data/textures/meshes\\SenPerkTree\\INTVampirePerkSkydome.dds"
+  },
+  "Archetypes SkyRemArchetypes": {
+    "Description": "Choose Your Path",
+    "icon_exists": 0.0,
+    "icon_loc": "",
+    "Name": "Archetypes",
+    "ShowMenuFile": "SkyRem - Cori.esp",
+    "ShowMenuId": "0xD63",
+    "Skydome": "Interface/CoriSkydome.nif",
+    "Skydome_tex_file_possible_loc": "data/textures/Interface/CoriSkydome.dds"
+  },
+  "Bishop SenBishop": {
+    "Description": "",
+    "icon_exists": 0.0,
+    "icon_loc": "",
+    "Name": "Bishop",
+    "ShowMenuFile": "HuishenGameplayOverhaul.esp",
+    "ShowMenuId": "0x5702C",
+    "Skydome": "meshes\\SenPerkTree\\INTVampirePerkSkydome.nif",
+    "Skydome_tex_file_possible_loc": "data/textures/meshes\\SenPerkTree\\INTVampirePerkSkydome.dds"
+  },
+  "Classes SkyRemClassMage": {
+    "Description": "Choose Your Path",
+    "icon_exists": 0.0,
+    "icon_loc": "",
+    "Name": "Classes",
+    "ShowMenuFile": "SkyRem - Cori.esp",
+    "ShowMenuId": "0x800",
+    "Skydome": "Interface/CoriSkydome.nif",
+    "Skydome_tex_file_possible_loc": "data/textures/Interface/CoriSkydome.dds"
+  },
+  "Classes SkyRemClassThief": {
+    "Description": "Choose Your Path",
+    "icon_exists": 0.0,
+    "icon_loc": "",
+    "Name": "Classes",
+    "ShowMenuFile": "SkyRem - Cori.esp",
+    "ShowMenuId": "0x803",
+    "Skydome": "Interface/CoriSkydome.nif",
+    "Skydome_tex_file_possible_loc": "data/textures/Interface/CoriSkydome.dds"
+  },
+  "Classes SkyRemClassWarrior": {
+    "Description": "Choose Your Path",
+    "icon_exists": 0.0,
+    "icon_loc": "",
+    "Name": "Classes",
+    "ShowMenuFile": "SkyRem - Cori.esp",
+    "ShowMenuId": "0x801",
+    "Skydome": "Interface/CoriSkydome.nif",
+    "Skydome_tex_file_possible_loc": "data/textures/Interface/CoriSkydome.dds"
+  },
+  "Companion Compskill": {
+    "Description": "Strength of Duty",
+    "icon_exists": 0.0,
+    "icon_loc": "",
+    "Name": "Companion",
+    "ShowMenuFile": "Companionsskillltree.esp",
+    "ShowMenuId": "0xD62",
+    "Skydome": "DLC01/Interface/INTVampirePerkSkydome.nif",
+    "Skydome_tex_file_possible_loc": "data/textures/DLC01/Interface/INTVampirePerkSkydome.dds"
+  },
+  "Dragonborn Dragonborn": {
+    "Description": "The one for whom the Stormcrown waited, Ysmir, Dragon of the North. Master your Thu'um to become the most powerful Tongue Tamriel has known.",
+    "icon_exists": 1,
+    "icon_loc": "data/textures/Dragonborn\\DragonbornDome.dds",
+    "Name": "Dragonborn",
+    "ShowMenuFile": "DragonbornShoutPerks.esp",
+    "ShowMenuId": "0x803",
+    "Skydome": "Dragonborn\\DragonbornDome.nif",
+    "Skydome_tex_file_possible_loc": "data/textures/Dragonborn\\DragonbornDome.dds"
+  },
+  "Evangeline Alteration EvangelineAlt": {
+    "Description": "Evangelines Alteration Skill!",
+    "icon_exists": 0.0,
+    "icon_loc": "",
+    "Name": "Evangeline Alteration",
+    "ShowMenuFile": "Evangeline.esp",
+    "ShowMenuId": "0x128B27",
+    "Skydome": "Interface/INTPerkSkydome.nif",
+    "Skydome_tex_file_possible_loc": "data/textures/Interface/INTPerkSkydome.dds"
+  },
+  "Evangeline Block EvangelineBlock": {
+    "Description": "Evangelines Block Skill!",
+    "icon_exists": 0.0,
+    "icon_loc": "",
+    "Name": "Evangeline Block",
+    "ShowMenuFile": "Evangeline.esp",
+    "ShowMenuId": "0x109B4F",
+    "Skydome": "Interface/INTPerkSkydome.nif",
+    "Skydome_tex_file_possible_loc": "data/textures/Interface/INTPerkSkydome.dds"
+  },
+  "Evangeline Destruction EvangelineDestru": {
+    "Description": "Evangelines Destruction Skill!",
+    "icon_exists": 0.0,
+    "icon_loc": "",
+    "Name": "Evangeline Destruction",
+    "ShowMenuFile": "Evangeline.esp",
+    "ShowMenuId": "0x113EF1",
+    "Skydome": "Interface/INTPerkSkydome.nif",
+    "Skydome_tex_file_possible_loc": "data/textures/Interface/INTPerkSkydome.dds"
+  },
+  "Evangeline Heavy Armor EvangelineHA": {
+    "Description": "Evangelines Heavy Armor Skill!",
+    "icon_exists": 0.0,
+    "icon_loc": "",
+    "Name": "Evangeline Heavy Armor",
+    "ShowMenuFile": "Evangeline.esp",
+    "ShowMenuId": "0x109B63",
+    "Skydome": "Interface/INTPerkSkydome.nif",
+    "Skydome_tex_file_possible_loc": "data/textures/Interface/INTPerkSkydome.dds"
+  },
+  "Evangeline One-Handed Evangeline1Hand": {
+    "Description": "Evangelines One-Handed Skill!",
+    "icon_exists": 0.0,
+    "icon_loc": "",
+    "Name": "Evangeline One-Handed",
+    "ShowMenuFile": "Evangeline.esp",
+    "ShowMenuId": "0xEAD0D",
+    "Skydome": "Interface/INTPerkSkydome.nif",
+    "Skydome_tex_file_possible_loc": "data/textures/Interface/INTPerkSkydome.dds"
+  },
+  "Evangeline Restoration EvangelineResto": {
+    "Description": "Evangelines Restoration Skill!",
+    "icon_exists": 0.0,
+    "icon_loc": "",
+    "Name": "Evangeline Restoration",
+    "ShowMenuFile": "Evangeline.esp",
+    "ShowMenuId": "0x128B19",
+    "Skydome": "Interface/INTPerkSkydome.nif",
+    "Skydome_tex_file_possible_loc": "data/textures/Interface/INTPerkSkydome.dds"
+  },
+  "Excavation LOTDSkillTreesExcavation": {
+    "Description": "The exposure, processing and recording of archaeological remains.",
+    "icon_exists": 1,
+    "icon_loc": "data/textures/LOTD Skill Trees/excavation.dds",
+    "Name": "Excavation",
+    "ShowMenuFile": "LOTD Skill Trees.esp",
+    "ShowMenuId": "0x805",
+    "Skydome": "LOTD Skill Trees/excavation.nif",
+    "Skydome_tex_file_possible_loc": "data/textures/LOTD Skill Trees/excavation.dds"
+  },
+  "Expedition LOTDSkillTreesExpedition": {
+    "Description": "A journey or voyage undertaken with the purpose of exploration and research.",
+    "icon_exists": 1,
+    "icon_loc": "data/textures/LOTD Skill Trees/expedition.dds",
+    "Name": "Expedition",
+    "ShowMenuFile": "LOTD Skill Trees.esp",
+    "ShowMenuId": "0x804",
+    "Skydome": "LOTD Skill Trees/expedition.nif",
+    "Skydome_tex_file_possible_loc": "data/textures/LOTD Skill Trees/expedition.dds"
+  },
+  "Knight SenKnight": {
+    "Description": "",
+    "icon_exists": 0.0,
+    "icon_loc": "",
+    "Name": "Knight",
+    "ShowMenuFile": "HuishenGameplayOverhaul.esp",
+    "ShowMenuId": "0xACC0C",
+    "Skydome": "meshes\\SenPerkTree\\INTVampirePerkSkydome.nif",
+    "Skydome_tex_file_possible_loc": "data/textures/meshes\\SenPerkTree\\INTVampirePerkSkydome.dds"
+  },
+  "Leadership leadershipskill": {
+    "Description": "Increase the number of your active followers by increasing your Skill as a Leader.",
+    "icon_exists": 1,
+    "icon_loc": "data/textures/leadership_tree\\LT_Dragonborn.dds",
+    "Name": "Leadership",
+    "ShowMenuFile": "Leadership - Custom Skill Framework.esp",
+    "ShowMenuId": "0x800",
+    "Skydome": "leadership_tree\\LT_Dragonborn.nif",
+    "Skydome_tex_file_possible_loc": "data/textures/leadership_tree\\LT_Dragonborn.dds"
+  },
+  "Lichdom PreludeToPurgatory": {
+    "Description": "As you consume the souls of mortals, your might will reach new heights",
+    "icon_exists": 0.0,
+    "icon_loc": "",
+    "Name": "Lichdom",
+    "ShowMenuFile": "PreludeToPurgatory.esp",
+    "ShowMenuId": "0x813",
+    "Skydome": "SeaSparrow/Interface/INTLichdomPerkSkydome.nif",
+    "Skydome_tex_file_possible_loc": "data/textures/SeaSparrow/Interface/INTLichdomPerkSkydome.dds"
+  },
+  "Machinist SenMachinist": {
+    "Description": "",
+    "icon_exists": 0.0,
+    "icon_loc": "",
+    "Name": "Machinist",
+    "ShowMenuFile": "HuishenGameplayOverhaul.esp",
+    "ShowMenuId": "0x2E201",
+    "Skydome": "meshes\\SenPerkTree\\INTVampirePerkSkydome.nif",
+    "Skydome_tex_file_possible_loc": "data/textures/meshes\\SenPerkTree\\INTVampirePerkSkydome.dds"
+  },
+  "Pyromancy FLM - Pyromancy Perk Tree": {
+    "Description": "As you use the flame magic and practice , fire calls you...",
+    "icon_exists": 0.0,
+    "icon_loc": "",
+    "Name": "Pyromancy",
+    "ShowMenuFile": "Pyromancy.esp",
+    "ShowMenuId": "0x803",
+    "Skydome": "Interface/intperkskydome.nif",
+    "Skydome_tex_file_possible_loc": "data/textures/Interface/intperkskydome.dds"
+  },
+  "Samurai SenSamurai": {
+    "Description": "",
+    "icon_exists": 0.0,
+    "icon_loc": "",
+    "Name": "Samurai",
+    "ShowMenuFile": "HuishenGameplayOverhaul.esp",
+    "ShowMenuId": "0x383F1",
+    "Skydome": "meshes\\SenPerkTree\\INTVampirePerkSkydome.nif",
+    "Skydome_tex_file_possible_loc": "data/textures/meshes\\SenPerkTree\\INTVampirePerkSkydome.dds"
+  },
+  "Specializations SkyRemSpecAcolyte": {
+    "Description": "Choose Your Path",
+    "icon_exists": 0.0,
+    "icon_loc": "",
+    "Name": "Specializations",
+    "ShowMenuFile": "SkyRem - Cori.esp",
+    "ShowMenuId": "0x869",
+    "Skydome": "Interface/CoriSkydome.nif",
+    "Skydome_tex_file_possible_loc": "data/textures/Interface/CoriSkydome.dds"
+  },
+  "Specializations SkyRemSpecAgent": {
+    "Description": "Choose Your Path",
+    "icon_exists": 0.0,
+    "icon_loc": "",
+    "Name": "Specializations",
+    "ShowMenuFile": "SkyRem - Cori.esp",
+    "ShowMenuId": "0x86B",
+    "Skydome": "Interface/CoriSkydome.nif",
+    "Skydome_tex_file_possible_loc": "data/textures/Interface/CoriSkydome.dds"
+  },
+  "Specializations SkyRemSpecChampion": {
+    "Description": "Choose Your Path",
+    "icon_exists": 0.0,
+    "icon_loc": "",
+    "Name": "Specializations",
+    "ShowMenuFile": "SkyRem - Cori.esp",
+    "ShowMenuId": "0x866",
+    "Skydome": "Interface/CoriSkydome.nif",
+    "Skydome_tex_file_possible_loc": "data/textures/Interface/CoriSkydome.dds"
+  },
+  "Specializations SkyRemSpecMagBattlemage": {
+    "Description": "Choose Your Path",
+    "icon_exists": 0.0,
+    "icon_loc": "",
+    "Name": "Specializations",
+    "ShowMenuFile": "SkyRem - Cori.esp",
+    "ShowMenuId": "0xC38",
+    "Skydome": "Interface/CoriSkydome.nif",
+    "Skydome_tex_file_possible_loc": "data/textures/Interface/CoriSkydome.dds"
+  },
+  "Specializations SkyRemSpecMagMystic": {
+    "Description": "Choose Your Path",
+    "icon_exists": 0.0,
+    "icon_loc": "",
+    "Name": "Specializations",
+    "ShowMenuFile": "SkyRem - Cori.esp",
+    "ShowMenuId": "0x86A",
+    "Skydome": "Interface/CoriSkydome.nif",
+    "Skydome_tex_file_possible_loc": "data/textures/Interface/CoriSkydome.dds"
+  },
+  "Specializations SkyRemSpecThiMystic": {
+    "Description": "Choose Your Path",
+    "icon_exists": 0.0,
+    "icon_loc": "",
+    "Name": "Specializations",
+    "ShowMenuFile": "SkyRem - Cori.esp",
+    "ShowMenuId": "0xC58",
+    "Skydome": "Interface/CoriSkydome.nif",
+    "Skydome_tex_file_possible_loc": "data/textures/Interface/CoriSkydome.dds"
+  },
+  "Specializations SkyRemSpecThiNomad": {
+    "Description": "Choose Your Path",
+    "icon_exists": 0.0,
+    "icon_loc": "",
+    "Name": "Specializations",
+    "ShowMenuFile": "SkyRem - Cori.esp",
+    "ShowMenuId": "0xC5A",
+    "Skydome": "Interface/CoriSkydome.nif",
+    "Skydome_tex_file_possible_loc": "data/textures/Interface/CoriSkydome.dds"
+  },
+  "Specializations SkyRemSpecWarBattlemage": {
+    "Description": "Choose Your Path",
+    "icon_exists": 0.0,
+    "icon_loc": "",
+    "Name": "Specializations",
+    "ShowMenuFile": "SkyRem - Cori.esp",
+    "ShowMenuId": "0x867",
+    "Skydome": "Interface/CoriSkydome.nif",
+    "Skydome_tex_file_possible_loc": "data/textures/Interface/CoriSkydome.dds"
+  },
+  "Specializations SkyRemSpecWarNomad": {
+    "Description": "Choose Your Path",
+    "icon_exists": 0.0,
+    "icon_loc": "",
+    "Name": "Specializations",
+    "ShowMenuFile": "SkyRem - Cori.esp",
+    "ShowMenuId": "0x868",
+    "Skydome": "Interface/CoriSkydome.nif",
+    "Skydome_tex_file_possible_loc": "data/textures/Interface/CoriSkydome.dds"
+  },
+  "Succubus SoaS": {
+    "Description": "Your ability to drain power from your sexual partners. Your soul grows in strength as you drain and kill mortals through sex acts.",
+    "icon_exists": 1,
+    "icon_loc": "data/textures/soas/constellation.dds",
+    "Name": "Succubus",
+    "ShowMenuFile": "soas.esp",
+    "ShowMenuId": "3617",
+    "Skydome": "soas/constellation.nif",
+    "Skydome_tex_file_possible_loc": "data/textures/soas/constellation.dds"
+  },
+  "Succubus Succubus": {
+    "Description": "",
+    "icon_exists": 0.0,
+    "icon_loc": "",
+    "Name": "Succubus",
+    "ShowMenuFile": "Succubus Gameplay.esp",
+    "ShowMenuId": "0x800",
+    "Skydome": "DLC01/Interface/INTVampirePerkSkydome.nif",
+    "Skydome_tex_file_possible_loc": "data/textures/DLC01/Interface/INTVampirePerkSkydome.dds"
+  },
+  "Vampirism HPL - Vampire Perk Tree": {
+    "Description": "As you feed, your terrible arsenal of powers expands...",
+    "icon_exists": 0.0,
+    "icon_loc": "",
+    "Name": "Vampirism",
+    "ShowMenuFile": "haemophilia.esp",
+    "ShowMenuId": "0x81F",
+    "Skydome": "meshes\\interface\\vampirism.nif",
+    "Skydome_tex_file_possible_loc": "data/textures/meshes\\interface\\vampirism.dds"
+  },
+  "Vampirism MolagsWillTree": {
+    "Description": "As you drain your foes, your might as a vampire increases, unlocking terrible powers...",
+    "icon_exists": 0.0,
+    "icon_loc": "",
+    "Name": "Vampirism",
+    "ShowMenuFile": "MolagsWillSkillTree.esp",
+    "ShowMenuId": "0x80F",
+    "Skydome": "SeaSparrow/Interface/INTMolagsWillPerkSkydome.nif",
+    "Skydome_tex_file_possible_loc": "data/textures/SeaSparrow/Interface/INTMolagsWillPerkSkydome.dds"
+  },
+  "Witcher Skill AWitchersAdventure": {
+    "Description": "",
+    "icon_exists": 0.0,
+    "icon_loc": "",
+    "Name": "Witcher Skill",
+    "ShowMenuFile": "A Witcher's Adventure.esp",
+    "ShowMenuId": "0x67C3D9",
+    "Skydome": "Gardden/FX/GW_MESH_WitcherSkillMenu.nif",
+    "Skydome_tex_file_possible_loc": "data/textures/Gardden/FX/GW_MESH_WitcherSkillMenu.dds"
+  }
+}
