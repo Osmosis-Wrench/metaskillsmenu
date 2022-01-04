@@ -12,6 +12,7 @@ import JSON;
 class OptionsContainer extends MovieClip
 {
 	var option0: MovieClip;
+	var totalOptions: Number;
 	
 	function OptionsContainer()
 	{
@@ -32,6 +33,7 @@ class OptionsContainer extends MovieClip
 			thisOne._x = lastOne._x + lastOne._width;
 			count++;
 		}
+		totalOptions = size;
 	}
 	
 	public function setOptionObjectInfo(optionNumber:Number, optionName:String, optionDescription:String, image_source:String, callbackKeyName:String) : Void
@@ -39,5 +41,12 @@ class OptionsContainer extends MovieClip
 		trace(optionNumber);
 		var uOption = this["option"+optionNumber];
 		uOption.defineOption(optionName, optionDescription, image_source, callbackKeyName);
+	}
+	
+	public function getOptionCallback(optionNumber:Number): String
+	{
+		trace(optionNumber);
+		var uOption = this["option"+optionNumber];
+		return uOption.Option_callbackKeyName;
 	}
 }

@@ -107,7 +107,7 @@ class TweenMenu extends MovieClip
 	function onInputRectClick(aiSelection: Number): Void
 	{
 		if (aiSelection == 5){
-			skse.SendModEvent("CustomSkillMenuClicked");
+			skse.SendModEvent("MetaSkillMenu_Open");
 			skse.CloseMenu("tweenmenu");
 			return;
 		}
@@ -188,7 +188,7 @@ class TweenMenu extends MovieClip
 			if (menuFrameIdx > 0) {
 				if (menuFrameIdx == 5 && menuFrameIdx == Selections_mc._currentframe - 1)
 				{
-					skse.SendModEvent("CustomSkillMenuClicked");
+					skse.SendModEvent("MetaSkillMenu_Open");
 					skse.CloseMenu("tweenmenu");
 					return;
 				}else if (menuFrameIdx == Selections_mc._currentframe - 1) {

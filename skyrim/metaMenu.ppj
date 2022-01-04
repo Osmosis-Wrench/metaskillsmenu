@@ -29,7 +29,7 @@
     </Folders>
     <ZipFiles Output="@Dist">
         <ZipFile Name="@ModName - @Version" RootDir="@MyProject" Compression="deflate">
-             <Match>*.pex|*.psc|*.esp|*.swf|*.lua</Match>
+             <Match>*.pex|*.psc|*.esp|*.swf|*.lua|*.txt</Match>
         </ZipFile>
     </ZipFiles>
 </PapyrusProject>

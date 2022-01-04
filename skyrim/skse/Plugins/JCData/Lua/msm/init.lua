@@ -35,9 +35,7 @@ function msm.returnSkillTreeObject(collection)
             r["Skydome_tex_file_possible_loc"] = "data/textures/" .. string.gsub(t["Skydome"], ".nif", ".dds")
             r["icon_exists"] = 0
             r["icon_loc"] = ""
-
-            r["ShowMenuFile"] = t["ShowMenuFile"]
-            r["ShowMenuId"] = t["ShowMenuId"]
+            r["ShowMenuForm"] = "__formData|"..t["ShowMenuFile"].."|"..t["ShowMenuId"]
             ret[collection[x]] = r
         end
     end

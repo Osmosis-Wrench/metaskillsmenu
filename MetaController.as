@@ -28,6 +28,7 @@ class MetaController extends MovieClip
 
 	var menuMoving:Boolean;
 	var id:Boolean;
+	var fuck:Boolean;
 
 	/* Variables */
 
@@ -35,16 +36,15 @@ class MetaController extends MovieClip
 	{
 		super();
 		id = true;
-		this._visible = false;
+		this._visible = false;;
 		menuMoving = false;
 		currentSelection = 0;
 		selection_shine._alpha = 0;
 		left_shine._alpha = 0;
 		right_shine._alpha = 0;
 		exit_shine._alpha = 0;
+		fuck = false;
 		option0 = OptionsContainer.option0;
-		
-		GameDelegate.call("PlaySound",["UIMenuBladeOpenSD"]);
 
 		FocusHandler.instance.setFocus(this,0);
 
@@ -96,8 +96,8 @@ class MetaController extends MovieClip
 	private function onLoad():Void
 	{
 		GameDelegate.call("PlaySound",["UIMenuFocus"]);
-		skse.SendModEvent("MetaSkillMenu_Open");
-		getData();
+		GameDelegate.call("PlaySound",["UIMenuBladeOpenSD"]);
+		getData("MSMData.json");
 	}
 	
 	public function readyToShow(): Void
@@ -105,7 +105,7 @@ class MetaController extends MovieClip
 		this._visible = true;
 	}
 
-	private function getData():Void
+	private function getData(pathToJsonFile:String):Void
 	{
 		var openData:LoadVars = new LoadVars();
 		openData.onLoad = function(success:Boolean)
@@ -144,9 +144,8 @@ class MetaController extends MovieClip
 				size--;
 			}
 			self.readyToShow();
-			
 		};
-		openData.load("metaMenuTest3.json");
+		openData.load(pathToJsonFile);
 	}
 
 	function InitExtensions():Void
@@ -157,6 +156,7 @@ class MetaController extends MovieClip
 	function onInputRectMouseOver(aiSelection:Number):Void
 	{
 		var shineAlpha = 5;
+		
 		if (aiSelection == 1)
 		{
 			selection_shine._alpha = shineAlpha;
@@ -194,11 +194,11 @@ class MetaController extends MovieClip
 		{
 			if (aiSelection == 2)
 			{
-				testTween(-1);
+				moveSelection(-1);
 			}
 			else if (aiSelection == 3)
 			{
-				testTween(1);
+				moveSelection(1);
 			}
 			else if (aiSelection == 1)
 			{
@@ -207,28 +207,65 @@ class MetaController extends MovieClip
 		}
 		if (aiSelection == 4)
 		{
-			menuMoving = true;
-			var onCompleteMove:Function = Delegate.create(this, function ()
+			doClose();
+		}
+	}
+	
+	function handleInput(details: InputDetails, pathToFocus: Array): Void
+	{
+		if (!menuMoving && GlobalFunc.IsKeyPressed(details)){
+			trace(details);
+			if (details.navEquivalent == NavigationCode.UP || details.navEquivalent == NavigationCode.GAMEPAD_X || details.navEquivalent == NavigationCode.GAMEPAD_A)
 			{
+				OpenCustomSkillMenu();
+			}
+			else if (details.navEquivalent == NavigationCode.LEFT)
+			{
+				moveSelection(-1);
+			}
+			else if (details.navEquivalent == NavigationCode.RIGHT)
+			{
+				moveSelection(1);
+			}
+			else if (details.navEquivalent == NavigationCode.DOWN || details.navEquivalent == NavigationCode.GAMEPAD_B)
+			{
+				doClose();
+			}
+		}
+	}
+	
+	function doClose(): Void
+	{
+		menuMoving = true;
+		var onCompleteMove:Function = Delegate.create(this, function ()
+		{
 			GameDelegate.call("PlaySound",["UIMenuBladeCloseSD"]);
 			skse.SendModEvent("MetaSkillMenu_Close");
 			skse.CloseMenu("CustomMenu");
-			});
-			Tween.LinearTween(this,"_y",this._x,-400,0.2,onCompleteMove);
-		}
+		});
+		Tween.LinearTween(this,"_y",this._x,-400,0.2,onCompleteMove);
 	}
 
-	function testTween(direction:Number):Void
+	function moveSelection(direction:Number):Void
 	{
-		if (direction == 1)
+		if (direction == -1) //left
 		{
-			var desired_x = OptionsContainer._x - 366;
-			currentSelection == 4 ? currentSelection = 0 : currentSelection++;
-		}
-		if (direction == -1)
-		{
+			if (currentSelection < 0){
+					return;
+				} else
+				{
+					currentSelection--;
+				}
 			var desired_x = OptionsContainer._x + 366;
-			currentSelection == 0 ? currentSelection = 4 : currentSelection--;
+		}
+		if (direction == 1) //right
+		{
+			if (currentSelection > OptionsContainer.totalOptions){
+				return;
+			} else {
+				currentSelection++;
+			}
+			var desired_x = OptionsContainer._x - 366;
 		}
 		trace(currentSelection);
 
@@ -244,23 +281,9 @@ class MetaController extends MovieClip
 
 	function OpenCustomSkillMenu():Void
 	{
-		trace(420);
+		var optionCallbackKey:String = OptionsContainer.getOptionCallback(currentSelection);
+		skse.SendModEvent("MetaSkillMenu_Selection", optionCallbackKey);
 	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

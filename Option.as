@@ -16,6 +16,7 @@ class Option extends MovieClip
 	var backup: MovieClip;
 	var Option_Name:TextField;
 	var Option_Description:TextField;
+	var Option_callbackKeyName: String;
 
 	function Option()
 	{
@@ -26,6 +27,7 @@ class Option extends MovieClip
 	{
 		optionName != null ? Option_Name.text = optionName : Option_Name.text = "FAIL: No Skill Name";
 		optionDescription != null ? Option_Description.text = optionDescription : Option_Description.text = "A Custom Skill Tree";
+		callbackKeyName != null ? Option_callbackKeyName = callbackKeyName : Option_Description.text = "FAIL: NO CALLBACK KEY GENERATED";
 		if (image_source != null){
 			loadCustomContent(image_source);
 		}
@@ -49,6 +51,6 @@ class Option extends MovieClip
 		};
 		var imageLoader:MovieClipLoader = new MovieClipLoader();
 		imageLoader.addListener(imageListener);
-		imageLoader.loadClip(a_source, Option_GraphicHolder);
+		imageLoader.loadClip("./../../../"+ a_source, Option_GraphicHolder);
 	}
 }
