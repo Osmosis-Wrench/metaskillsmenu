@@ -1,0 +1,281 @@
+{
+  "Academia LOTDSkillTreesAcademia": {
+    "Description": "The pursuit of research, education, and scholarship.",
+    "icon_exists": 1,
+    "icon_loc": "data/textures/LOTD Skill Trees/academia.dds",
+    "Name": "Academia",
+    "ShowMenuForm": "__formData|LOTD Skill Trees.esp|0x802",
+    "Skydome": "LOTD Skill Trees/academia.nif",
+    "Skydome_tex_file_possible_loc": "data/textures/LOTD Skill Trees/academia.dds"
+  },
+  "Alchemist SenAlchemist": {
+    "Description": "",
+    "icon_exists": 0.0,
+    "icon_loc": "",
+    "Name": "Alchemist",
+    "ShowMenuForm": "__formData|HuishenGameplayOverhaul.esp|0x0ABD9",
+    "Skydome": "meshes\\SenPerkTree\\INTVampirePerkSkydome.nif",
+    "Skydome_tex_file_possible_loc": "data/textures/meshes\\SenPerkTree\\INTVampirePerkSkydome.dds"
+  },
+  "Archetypes SkyRemArchetypes": {
+    "Description": "Choose Your Path",
+    "icon_exists": 0.0,
+    "icon_loc": "",
+    "Name": "Archetypes",
+    "ShowMenuForm": "__formData|SkyRem - Cori.esp|0xD63",
+    "Skydome": "Interface/CoriSkydome.nif",
+    "Skydome_tex_file_possible_loc": "data/textures/Interface/CoriSkydome.dds"
+  },
+  "Bishop SenBishop": {
+    "Description": "",
+    "icon_exists": 0.0,
+    "icon_loc": "",
+    "Name": "Bishop",
+    "ShowMenuForm": "__formData|HuishenGameplayOverhaul.esp|0x5702C",
+    "Skydome": "meshes\\SenPerkTree\\INTVampirePerkSkydome.nif",
+    "Skydome_tex_file_possible_loc": "data/textures/meshes\\SenPerkTree\\INTVampirePerkSkydome.dds"
+  },
+  "Classes SkyRemClassMage": {
+    "Description": "Choose Your Path",
+    "icon_exists": 0.0,
+    "icon_loc": "",
+    "Name": "Classes",
+    "ShowMenuForm": "__formData|SkyRem - Cori.esp|0x800",
+    "Skydome": "Interface/CoriSkydome.nif",
+    "Skydome_tex_file_possible_loc": "data/textures/Interface/CoriSkydome.dds"
+  },
+  "Classes SkyRemClassThief": {
+    "Description": "Choose Your Path",
+    "icon_exists": 0.0,
+    "icon_loc": "",
+    "Name": "Classes",
+    "ShowMenuForm": "__formData|SkyRem - Cori.esp|0x803",
+    "Skydome": "Interface/CoriSkydome.nif",
+    "Skydome_tex_file_possible_loc": "data/textures/Interface/CoriSkydome.dds"
+  },
+  "Classes SkyRemClassWarrior": {
+    "Description": "Choose Your Path",
+    "icon_exists": 0.0,
+    "icon_loc": "",
+    "Name": "Classes",
+    "ShowMenuForm": "__formData|SkyRem - Cori.esp|0x801",
+    "Skydome": "Interface/CoriSkydome.nif",
+    "Skydome_tex_file_possible_loc": "data/textures/Interface/CoriSkydome.dds"
+  },
+  "Companion Compskill": {
+    "Description": "Strength of Duty",
+    "icon_exists": 0.0,
+    "icon_loc": "",
+    "Name": "Companion",
+    "ShowMenuForm": "__formData|Companionsskillltree.esp|0xD62",
+    "Skydome": "DLC01/Interface/INTVampirePerkSkydome.nif",
+    "Skydome_tex_file_possible_loc": "data/textures/DLC01/Interface/INTVampirePerkSkydome.dds"
+  },
+  "Dragonborn Dragonborn": {
+    "Description": "The one for whom the Stormcrown waited, Ysmir, Dragon of the North. Master your Thu'um to become the most powerful Tongue Tamriel has known.",
+    "icon_exists": 1,
+    "icon_loc": "data/textures/Dragonborn\\DragonbornDome.dds",
+    "Name": "Dragonborn",
+    "ShowMenuForm": "__formData|DragonbornShoutPerks.esp|0x803",
+    "Skydome": "Dragonborn\\DragonbornDome.nif",
+    "Skydome_tex_file_possible_loc": "data/textures/Dragonborn\\DragonbornDome.dds"
+  },
+  "Excavation LOTDSkillTreesExcavation": {
+    "Description": "The exposure, processing and recording of archaeological remains.",
+    "icon_exists": 1,
+    "icon_loc": "data/textures/LOTD Skill Trees/excavation.dds",
+    "Name": "Excavation",
+    "ShowMenuForm": "__formData|LOTD Skill Trees.esp|0x805",
+    "Skydome": "LOTD Skill Trees/excavation.nif",
+    "Skydome_tex_file_possible_loc": "data/textures/LOTD Skill Trees/excavation.dds"
+  },
+  "Expedition LOTDSkillTreesExpedition": {
+    "Description": "A journey or voyage undertaken with the purpose of exploration and research.",
+    "icon_exists": 1,
+    "icon_loc": "data/textures/LOTD Skill Trees/expedition.dds",
+    "Name": "Expedition",
+    "ShowMenuForm": "__formData|LOTD Skill Trees.esp|0x804",
+    "Skydome": "LOTD Skill Trees/expedition.nif",
+    "Skydome_tex_file_possible_loc": "data/textures/LOTD Skill Trees/expedition.dds"
+  },
+  "Hand To Hand VicHand2Hand": {
+    "Description": "Pugilist is specialized in Hand To Hand combat. A true warrior does not needs a sword",
+    "icon_exists": 0.0,
+    "icon_loc": "",
+    "Name": "Hand To Hand",
+    "ShowMenuForm": "__formData|Perk-HandToHand.esp|0xD64",
+    "Skydome": "Interface/H2H/intH2Hskydome.nif",
+    "Skydome_tex_file_possible_loc": "data/textures/Interface/H2H/intH2Hskydome.dds"
+  },
+  "Knight SenKnight": {
+    "Description": "",
+    "icon_exists": 0.0,
+    "icon_loc": "",
+    "Name": "Knight",
+    "ShowMenuForm": "__formData|HuishenGameplayOverhaul.esp|0xACC0C",
+    "Skydome": "meshes\\SenPerkTree\\INTVampirePerkSkydome.nif",
+    "Skydome_tex_file_possible_loc": "data/textures/meshes\\SenPerkTree\\INTVampirePerkSkydome.dds"
+  },
+  "Leadership leadershipskill": {
+    "Description": "Increase the number of your active followers by increasing your Skill as a Leader.",
+    "icon_exists": 1,
+    "icon_loc": "data/textures/leadership_tree\\LT_Dragonborn.dds",
+    "Name": "Leadership",
+    "ShowMenuForm": "__formData|Leadership - Custom Skill Framework.esp|0x800",
+    "Skydome": "leadership_tree\\LT_Dragonborn.nif",
+    "Skydome_tex_file_possible_loc": "data/textures/leadership_tree\\LT_Dragonborn.dds"
+  },
+  "Lichdom PreludeToPurgatory": {
+    "Description": "As you consume the souls of mortals, your might will reach new heights",
+    "icon_exists": 0.0,
+    "icon_loc": "",
+    "Name": "Lichdom",
+    "ShowMenuForm": "__formData|PreludeToPurgatory.esp|0x813",
+    "Skydome": "SeaSparrow/Interface/INTLichdomPerkSkydome.nif",
+    "Skydome_tex_file_possible_loc": "data/textures/SeaSparrow/Interface/INTLichdomPerkSkydome.dds"
+  },
+  "Machinist SenMachinist": {
+    "Description": "",
+    "icon_exists": 0.0,
+    "icon_loc": "",
+    "Name": "Machinist",
+    "ShowMenuForm": "__formData|HuishenGameplayOverhaul.esp|0x2E201",
+    "Skydome": "meshes\\SenPerkTree\\INTVampirePerkSkydome.nif",
+    "Skydome_tex_file_possible_loc": "data/textures/meshes\\SenPerkTree\\INTVampirePerkSkydome.dds"
+  },
+  "Pyromancy FLM - Pyromancy Perk Tree": {
+    "Description": "As you use the flame magic and practice , fire calls you...",
+    "icon_exists": 0.0,
+    "icon_loc": "",
+    "Name": "Pyromancy",
+    "ShowMenuForm": "__formData|Pyromancy.esp|0x803",
+    "Skydome": "Interface/intperkskydome.nif",
+    "Skydome_tex_file_possible_loc": "data/textures/Interface/intperkskydome.dds"
+  },
+  "Samurai SenSamurai": {
+    "Description": "",
+    "icon_exists": 0.0,
+    "icon_loc": "",
+    "Name": "Samurai",
+    "ShowMenuForm": "__formData|HuishenGameplayOverhaul.esp|0x383F1",
+    "Skydome": "meshes\\SenPerkTree\\INTVampirePerkSkydome.nif",
+    "Skydome_tex_file_possible_loc": "data/textures/meshes\\SenPerkTree\\INTVampirePerkSkydome.dds"
+  },
+  "Specializations SkyRemSpecAcolyte": {
+    "Description": "Choose Your Path",
+    "icon_exists": 0.0,
+    "icon_loc": "",
+    "Name": "Specializations",
+    "ShowMenuForm": "__formData|SkyRem - Cori.esp|0x869",
+    "Skydome": "Interface/CoriSkydome.nif",
+    "Skydome_tex_file_possible_loc": "data/textures/Interface/CoriSkydome.dds"
+  },
+  "Specializations SkyRemSpecAgent": {
+    "Description": "Choose Your Path",
+    "icon_exists": 0.0,
+    "icon_loc": "",
+    "Name": "Specializations",
+    "ShowMenuForm": "__formData|SkyRem - Cori.esp|0x86B",
+    "Skydome": "Interface/CoriSkydome.nif",
+    "Skydome_tex_file_possible_loc": "data/textures/Interface/CoriSkydome.dds"
+  },
+  "Specializations SkyRemSpecChampion": {
+    "Description": "Choose Your Path",
+    "icon_exists": 0.0,
+    "icon_loc": "",
+    "Name": "Specializations",
+    "ShowMenuForm": "__formData|SkyRem - Cori.esp|0x866",
+    "Skydome": "Interface/CoriSkydome.nif",
+    "Skydome_tex_file_possible_loc": "data/textures/Interface/CoriSkydome.dds"
+  },
+  "Specializations SkyRemSpecMagBattlemage": {
+    "Description": "Choose Your Path",
+    "icon_exists": 0.0,
+    "icon_loc": "",
+    "Name": "Specializations",
+    "ShowMenuForm": "__formData|SkyRem - Cori.esp|0xC38",
+    "Skydome": "Interface/CoriSkydome.nif",
+    "Skydome_tex_file_possible_loc": "data/textures/Interface/CoriSkydome.dds"
+  },
+  "Specializations SkyRemSpecMagMystic": {
+    "Description": "Choose Your Path",
+    "icon_exists": 0.0,
+    "icon_loc": "",
+    "Name": "Specializations",
+    "ShowMenuForm": "__formData|SkyRem - Cori.esp|0x86A",
+    "Skydome": "Interface/CoriSkydome.nif",
+    "Skydome_tex_file_possible_loc": "data/textures/Interface/CoriSkydome.dds"
+  },
+  "Specializations SkyRemSpecThiMystic": {
+    "Description": "Choose Your Path",
+    "icon_exists": 0.0,
+    "icon_loc": "",
+    "Name": "Specializations",
+    "ShowMenuForm": "__formData|SkyRem - Cori.esp|0xC58",
+    "Skydome": "Interface/CoriSkydome.nif",
+    "Skydome_tex_file_possible_loc": "data/textures/Interface/CoriSkydome.dds"
+  },
+  "Specializations SkyRemSpecThiNomad": {
+    "Description": "Choose Your Path",
+    "icon_exists": 0.0,
+    "icon_loc": "",
+    "Name": "Specializations",
+    "ShowMenuForm": "__formData|SkyRem - Cori.esp|0xC5A",
+    "Skydome": "Interface/CoriSkydome.nif",
+    "Skydome_tex_file_possible_loc": "data/textures/Interface/CoriSkydome.dds"
+  },
+  "Specializations SkyRemSpecWarBattlemage": {
+    "Description": "Choose Your Path",
+    "icon_exists": 0.0,
+    "icon_loc": "",
+    "Name": "Specializations",
+    "ShowMenuForm": "__formData|SkyRem - Cori.esp|0x867",
+    "Skydome": "Interface/CoriSkydome.nif",
+    "Skydome_tex_file_possible_loc": "data/textures/Interface/CoriSkydome.dds"
+  },
+  "Specializations SkyRemSpecWarNomad": {
+    "Description": "Choose Your Path",
+    "icon_exists": 0.0,
+    "icon_loc": "",
+    "Name": "Specializations",
+    "ShowMenuForm": "__formData|SkyRem - Cori.esp|0x868",
+    "Skydome": "Interface/CoriSkydome.nif",
+    "Skydome_tex_file_possible_loc": "data/textures/Interface/CoriSkydome.dds"
+  },
+  "Succubus SoaS": {
+    "Description": "Your ability to drain power from your sexual partners. Your soul grows in strength as you drain and kill mortals through sex acts.",
+    "icon_exists": 1,
+    "icon_loc": "data/textures/soas/constellation.dds",
+    "Name": "Succubus",
+    "ShowMenuForm": "__formData|soas.esp|0xE21",
+    "Skydome": "soas/constellation.nif",
+    "Skydome_tex_file_possible_loc": "data/textures/soas/constellation.dds"
+  },
+  "Succubus Succubus": {
+    "Description": "",
+    "icon_exists": 0.0,
+    "icon_loc": "",
+    "Name": "Succubus",
+    "ShowMenuForm": "__formData|Succubus Gameplay.esp|0x800",
+    "Skydome": "DLC01/Interface/INTVampirePerkSkydome.nif",
+    "Skydome_tex_file_possible_loc": "data/textures/DLC01/Interface/INTVampirePerkSkydome.dds"
+  },
+  "Vampirism HPL - Vampire Perk Tree": {
+    "Description": "As you feed, your terrible arsenal of powers expands...",
+    "icon_exists": 0.0,
+    "icon_loc": "",
+    "Name": "Vampirism",
+    "ShowMenuForm": "__formData|haemophilia.esp|0x81F",
+    "Skydome": "meshes\\interface\\vampirism.nif",
+    "Skydome_tex_file_possible_loc": "data/textures/meshes\\interface\\vampirism.dds"
+  },
+  "Vampirism MolagsWillTree": {
+    "Description": "As you drain your foes, your might as a vampire increases, unlocking terrible powers...",
+    "icon_exists": 0.0,
+    "icon_loc": "",
+    "Name": "Vampirism",
+    "ShowMenuForm": "__formData|MolagsWillSkillTree.esp|0x80F",
+    "Skydome": "SeaSparrow/Interface/INTMolagsWillPerkSkydome.nif",
+    "Skydome_tex_file_possible_loc": "data/textures/SeaSparrow/Interface/INTMolagsWillPerkSkydome.dds"
+  }
+}

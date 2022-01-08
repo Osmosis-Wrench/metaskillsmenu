@@ -14,7 +14,6 @@ function msm.returnSkillTreeObject(collection)
         local file = io.open(collection[x], "r")
         local content = file:read "*a"
         file:close()
-        --ret[collection[x]] = content
         local t = JMap.object()
         --for k, v in string.gmatch(content, "(%w+) = (\"?%w+.?%w?\"?)") do
         for k, v in string.gmatch(content, "(%w+) =(.-\n)") do
@@ -23,19 +22,17 @@ function msm.returnSkillTreeObject(collection)
             t[k] = string.gsub(t[k], "\n", "")
             t[k] = string.gsub(t[k], " \\ ", "")
             t[k] = string.gsub(t[k], "\"", "")
-            --t[k] = string.gsub(t[k], ".nif", ".dds")
             t[k] = trim(t[k])
         end
-        if t["Name"] then
+        if t["Name"]and t["MSM_DoNotShow"] == nil then
             local r = JMap.object()
             r["Name"] = t["Name"]
             r["Description"] = t["Description"]
-
             r["Skydome"] = t["Skydome"]
-            r["Skydome_tex_file_possible_loc"] = "data/textures/" .. string.gsub(t["Skydome"], ".nif", ".dds")
+            r["icon_loc"] = "data/interface/MetaSkillsMenu/" .. r["Name"] .. " " .. string.gsub(t["ShowMenuFile"], ".esp", ".dds")
             r["icon_exists"] = 0
-            r["icon_loc"] = ""
-            r["ShowMenuForm"] = "__formData|"..t["ShowMenuFile"].."|"..t["ShowMenuId"]
+            r["ShowMenuFile"] = t["ShowMenuFile"]
+            r["ShowMenuForm"] = "__formData|"..t["ShowMenuFile"].."|"..t["ShowMenuId"] -- construct formdata record
             ret[collection[x]] = r
         end
     end

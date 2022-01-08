@@ -4,6 +4,8 @@ import gfx.ui.InputDetails;
 import gfx.ui.NavigationCode;
 import Shared.GlobalFunc;
 import Components.Meter;
+import mx.utils.Delegate;
+import skyui.util.Tween;
 import skse;
 
 class TweenMenu extends MovieClip
@@ -107,8 +109,7 @@ class TweenMenu extends MovieClip
 	function onInputRectClick(aiSelection: Number): Void
 	{
 		if (aiSelection == 5){
-			skse.SendModEvent("MetaSkillMenu_Open");
-			skse.CloseMenu("tweenmenu");
+			handleCustomSkillMenuOpen();
 			return;
 		}
 		if (bClosing) 
@@ -155,6 +156,7 @@ class TweenMenu extends MovieClip
 	{
 		gotoAndStop("showMenu");
 		BottomBarTweener_mc._alpha = 100;
+		GameDelegate.call("HighlightMenu", [1]);
 	}
 
 	function HideMenu(): Void
@@ -188,9 +190,7 @@ class TweenMenu extends MovieClip
 			if (menuFrameIdx > 0) {
 				if (menuFrameIdx == 5 && menuFrameIdx == Selections_mc._currentframe - 1)
 				{
-					skse.SendModEvent("MetaSkillMenu_Open");
-					skse.CloseMenu("tweenmenu");
-					return;
+					handleCustomSkillMenuOpen();
 				}else if (menuFrameIdx == Selections_mc._currentframe - 1) {
 					GameDelegate.call("OpenHighlightedMenu", [menuFrameIdx]);
 				} else if (menuFrameIdx == 5){
@@ -213,6 +213,19 @@ class TweenMenu extends MovieClip
 		if (bLevelUp) 
 			Selections_mc.SkillsText_mc.textField.SetText("$LEVEL UP");
 		return true;
+	}
+	
+	function handleCustomSkillMenuOpen():Void
+	{
+		GameDelegate.call("HighlightMenu", [5]);
+		var onCompleteTimer:Function = Delegate.create(this, function ()
+		{
+			skse.SendModEvent("MetaSkillMenu_Open");
+			HideMenu();
+			//skse.CloseMenu("tweenmenu");
+		});
+		var timer:Number = setTimeout(Delegate.create(this, onCompleteTimer), 800)
+		GameDelegate.call("PlaySound",["UISkillsFocus"]);
 	}
 
 }

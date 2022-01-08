@@ -51,6 +51,7 @@ class Option extends MovieClip
 		};
 		var imageLoader:MovieClipLoader = new MovieClipLoader();
 		imageLoader.addListener(imageListener);
-		imageLoader.loadClip("./../../../"+ a_source, Option_GraphicHolder);
+		skse.SendModEvent("debug123", "./../../../"+a_source);
+		imageLoader.loadClip("./../../../"+a_source, Option_GraphicHolder);
 	}
 }

@@ -1,14 +1,11 @@
 Scriptname metaSkillMenu_PlayerAlias extends ReferenceAlias
 {ReferenceAlias script for MetaSkillMenu}
-
-event OnInit()
-    onLoad()
-endEvent
+Quest Property MetaSkillsMenu  Auto
 
 event OnPlayerLoadGame()
     onLoad()
 endEvent
 
 function onLoad()
-    ;metaSkillMenuScript.startup()
+    (MetaSkillsMenu as metaSkillMenuScript).startup()
 endfunction

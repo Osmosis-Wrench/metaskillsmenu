@@ -28,7 +28,6 @@ class MetaController extends MovieClip
 
 	var menuMoving:Boolean;
 	var id:Boolean;
-	var fuck:Boolean;
 
 	/* Variables */
 
@@ -43,7 +42,7 @@ class MetaController extends MovieClip
 		left_shine._alpha = 0;
 		right_shine._alpha = 0;
 		exit_shine._alpha = 0;
-		fuck = false;
+		
 		option0 = OptionsContainer.option0;
 
 		FocusHandler.instance.setFocus(this,0);
@@ -93,10 +92,10 @@ class MetaController extends MovieClip
 			}
 		};
 	}
+	
 	private function onLoad():Void
 	{
-		GameDelegate.call("PlaySound",["UIMenuFocus"]);
-		GameDelegate.call("PlaySound",["UIMenuBladeOpenSD"]);
+		GameDelegate.call("PlaySound",["UIMenuBladeOpen"]);
 		getData("MSMData.json");
 	}
 	
@@ -166,6 +165,9 @@ class MetaController extends MovieClip
 		}
 		else if (aiSelection == 2)
 		{
+			if (currentSelection <= 0){
+				return
+			}
 			selection_shine._alpha = 0;
 			left_shine._alpha = shineAlpha;
 			right_shine._alpha = 0;
@@ -173,6 +175,9 @@ class MetaController extends MovieClip
 		}
 		else if (aiSelection == 3)
 		{
+			if (currentSelection >= OptionsContainer.totalOptions){
+				return
+			}
 			selection_shine._alpha = 0;
 			left_shine._alpha = 0;
 			right_shine._alpha = shineAlpha;
@@ -213,6 +218,7 @@ class MetaController extends MovieClip
 	
 	function handleInput(details: InputDetails, pathToFocus: Array): Void
 	{
+		
 		if (!menuMoving && GlobalFunc.IsKeyPressed(details)){
 			trace(details);
 			if (details.navEquivalent == NavigationCode.UP || details.navEquivalent == NavigationCode.GAMEPAD_X || details.navEquivalent == NavigationCode.GAMEPAD_A)
@@ -239,50 +245,62 @@ class MetaController extends MovieClip
 		menuMoving = true;
 		var onCompleteMove:Function = Delegate.create(this, function ()
 		{
-			GameDelegate.call("PlaySound",["UIMenuBladeCloseSD"]);
+			GameDelegate.call("PlaySound",["UIMenuBladeClose"]);
 			skse.SendModEvent("MetaSkillMenu_Close");
 			skse.CloseMenu("CustomMenu");
 		});
 		Tween.LinearTween(this,"_y",this._x,-400,0.2,onCompleteMove);
+		Tween.LinearTween(this,"_alpha", this._alpha, 0, 0.2);
 	}
 
 	function moveSelection(direction:Number):Void
 	{
 		if (direction == -1) //left
 		{
-			if (currentSelection < 0){
+			if (currentSelection <= 0){
 					return;
 				} else
 				{
 					currentSelection--;
 				}
 			var desired_x = OptionsContainer._x + 366;
+			left_shine._alpha = 15;
 		}
 		if (direction == 1) //right
 		{
-			if (currentSelection > OptionsContainer.totalOptions){
+			if (currentSelection >= OptionsContainer.totalOptions){
 				return;
 			} else {
 				currentSelection++;
 			}
 			var desired_x = OptionsContainer._x - 366;
+			right_shine._alpha = 15;
 		}
-		trace(currentSelection);
+		GameDelegate.call("PlaySound",["UIInventorySlide"]);
 
 		var onCompleteMove:Function = Delegate.create(this, function ()
 		{
-		menuMoving = false;
+			menuMoving = false;
+			left_shine._alpha = 0;
+			right_shine._alpha = 0;
 		});
 
 		menuMoving = true;
 		Tween.LinearTween(OptionsContainer,"_x",OptionsContainer._x,desired_x,0.2,onCompleteMove);
-		GameDelegate.call("PlaySound",["UIMenuFocus"]);
 	}
 
 	function OpenCustomSkillMenu():Void
 	{
 		var optionCallbackKey:String = OptionsContainer.getOptionCallback(currentSelection);
-		skse.SendModEvent("MetaSkillMenu_Selection", optionCallbackKey);
+		var onCompleteMove:Function = Delegate.create(this, function ()
+		{
+			GameDelegate.call("PlaySound",["UIMenuBladeClose"]);
+			skse.SendModEvent("MetaSkillMenu_Selection", optionCallbackKey);
+			skse.CloseMenu("TweenMenu");
+		});
+		Tween.LinearTween(this,"_y",this._y,800,0.3,onCompleteMove);
+		Tween.LinearTween(this,"_alpha", this._alpha, 0, 0.3);
+
 	}
 
 
