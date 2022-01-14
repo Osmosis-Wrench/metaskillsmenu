@@ -95,7 +95,6 @@ class MetaController extends MovieClip
 	
 	private function onLoad():Void
 	{
-		GameDelegate.call("PlaySound",["UIMenuBladeOpen"]);
 		getData("MSMData.json");
 	}
 	
@@ -107,44 +106,43 @@ class MetaController extends MovieClip
 	private function getData(pathToJsonFile:String):Void
 	{
 		var openData:LoadVars = new LoadVars();
-		openData.onLoad = function(success:Boolean)
-		{
-			if (!success)
-			{
-				trace("Couldn't find the file.");
-			}
-		};
+
 		openData.onData = function(jsonData)
 		{
+			trace(getBytesLoaded());
 			var self:MovieClip = _root.MetaController_mc;
-			var o:Object = JSON.parse(jsonData);
-			var i;
-			
-			var size = -1; // this is dumb.
-			for (i in o)
+			if (jsonData) 
 			{
-				size++;
-			}
+				var o:Object = JSON.parse(jsonData);
+				var i;
 			
-			self.OptionsContainer.setTotalCount(size);
-			
-			for (i in o)
-			{
-				var jcallbackName = i;
-				var jname = o[i]["Name"];
-				var jdescription = o[i]["Description"];
-				var jiconloc;
-				if (o[i]["icon_exists"] == 1)
+				var size = -1; // this is dumb.
+				for (i in o)
 				{
-					jiconloc = o[i]["icon_loc"];
+					size++;
 				}
-				//trace(jcallbackName + " | Name: " + jname + " | Desc: " + jdescription + " | iconloc: " + jiconloc);
-				self.OptionsContainer.setOptionObjectInfo(size, jname, jdescription, jiconloc, jcallbackName);
-				size--;
+			
+				self.OptionsContainer.setTotalCount(size);
+			
+				for (i in o)
+				{
+					var jcallbackName = i;
+					var jname = o[i]["Name"];
+					var jdescription = o[i]["Description"];
+					var jiconloc;
+					if (o[i]["icon_exists"] == 1)
+					{
+						jiconloc = o[i]["icon_loc"];
+					}
+					self.OptionsContainer.setOptionObjectInfo(size, jname, jdescription, jiconloc, jcallbackName);
+					size--;
+				}
+			} else {
+				self.OptionsContainer.setOptionObjectInfo(0, "Error", "MSMData.json not found, this could be because you have no Custom Skill Framework mods installed.", "data/interface/MetaSkillsMenu/FAILICON.dds", "FAILFAILFAIL");
 			}
 			self.readyToShow();
 		};
-		openData.load(pathToJsonFile);
+		openData.load(pathToJsonFile);	
 	}
 
 	function InitExtensions():Void
@@ -218,7 +216,7 @@ class MetaController extends MovieClip
 	
 	function handleInput(details: InputDetails, pathToFocus: Array): Void
 	{
-		
+		//testText.text = details.toString();
 		if (!menuMoving && GlobalFunc.IsKeyPressed(details)){
 			trace(details);
 			if (details.navEquivalent == NavigationCode.UP || details.navEquivalent == NavigationCode.GAMEPAD_X || details.navEquivalent == NavigationCode.GAMEPAD_A)
@@ -233,7 +231,7 @@ class MetaController extends MovieClip
 			{
 				moveSelection(1);
 			}
-			else if (details.navEquivalent == NavigationCode.DOWN || details.navEquivalent == NavigationCode.GAMEPAD_B)
+			else if (details.navEquivalent == NavigationCode.DOWN || details.navEquivalent == NavigationCode.GAMEPAD_B || details.navEquivalent == NavigationCode.TAB || details.navEquivalent == NavigationCode.GAMEPAD_BACK)
 			{
 				doClose();
 			}
@@ -245,7 +243,7 @@ class MetaController extends MovieClip
 		menuMoving = true;
 		var onCompleteMove:Function = Delegate.create(this, function ()
 		{
-			GameDelegate.call("PlaySound",["UIMenuBladeClose"]);
+			GameDelegate.call("PlaySound",["UISkillsFocus"]);
 			skse.SendModEvent("MetaSkillMenu_Close");
 			skse.CloseMenu("CustomMenu");
 		});
@@ -255,28 +253,31 @@ class MetaController extends MovieClip
 
 	function moveSelection(direction:Number):Void
 	{
-		if (direction == -1) //left
+		 //left
+		if (direction == -1)
 		{
 			if (currentSelection <= 0){
 					return;
 				} else
 				{
 					currentSelection--;
+					GameDelegate.call("PlaySound",["UISkillsBackward"]);
 				}
 			var desired_x = OptionsContainer._x + 366;
-			left_shine._alpha = 15;
+			left_shine._alpha = 5;
 		}
-		if (direction == 1) //right
+		//right
+		if (direction == 1) 
 		{
 			if (currentSelection >= OptionsContainer.totalOptions){
 				return;
 			} else {
 				currentSelection++;
+				GameDelegate.call("PlaySound",["UISkillsForward"]);
 			}
 			var desired_x = OptionsContainer._x - 366;
-			right_shine._alpha = 15;
+			right_shine._alpha = 5;
 		}
-		GameDelegate.call("PlaySound",["UIInventorySlide"]);
 
 		var onCompleteMove:Function = Delegate.create(this, function ()
 		{
@@ -294,7 +295,7 @@ class MetaController extends MovieClip
 		var optionCallbackKey:String = OptionsContainer.getOptionCallback(currentSelection);
 		var onCompleteMove:Function = Delegate.create(this, function ()
 		{
-			GameDelegate.call("PlaySound",["UIMenuBladeClose"]);
+			GameDelegate.call("PlaySound",["UISkillFocus"]);
 			skse.SendModEvent("MetaSkillMenu_Selection", optionCallbackKey);
 			skse.CloseMenu("TweenMenu");
 		});

@@ -109,6 +109,7 @@ class TweenMenu extends MovieClip
 	function onInputRectClick(aiSelection: Number): Void
 	{
 		if (aiSelection == 5){
+			GameDelegate.call("PlaySound",["UISkillsForward"]);
 			handleCustomSkillMenuOpen();
 			return;
 		}
@@ -190,6 +191,7 @@ class TweenMenu extends MovieClip
 			if (menuFrameIdx > 0) {
 				if (menuFrameIdx == 5 && menuFrameIdx == Selections_mc._currentframe - 1)
 				{
+					GameDelegate.call("PlaySound",["UISkillsForward"]);
 					handleCustomSkillMenuOpen();
 				}else if (menuFrameIdx == Selections_mc._currentframe - 1) {
 					GameDelegate.call("OpenHighlightedMenu", [menuFrameIdx]);
@@ -225,7 +227,6 @@ class TweenMenu extends MovieClip
 			//skse.CloseMenu("tweenmenu");
 		});
 		var timer:Number = setTimeout(Delegate.create(this, onCompleteTimer), 800)
-		GameDelegate.call("PlaySound",["UISkillsFocus"]);
 	}
 
 }

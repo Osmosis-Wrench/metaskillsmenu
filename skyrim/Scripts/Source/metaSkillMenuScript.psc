@@ -43,7 +43,6 @@ function load_data()
         endif
         filekey = jmap.nextkey(y, filekey)
     endwhile
-
     jvalue.writetofile(p, "data/interface/MetaSkillsMenu/MSMData.json")
 endfunction
 
