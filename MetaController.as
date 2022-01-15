@@ -216,7 +216,6 @@ class MetaController extends MovieClip
 	
 	function handleInput(details: InputDetails, pathToFocus: Array): Void
 	{
-		//testText.text = details.toString();
 		if (!menuMoving && GlobalFunc.IsKeyPressed(details)){
 			trace(details);
 			if (details.navEquivalent == NavigationCode.UP || details.navEquivalent == NavigationCode.GAMEPAD_X || details.navEquivalent == NavigationCode.GAMEPAD_A)
