@@ -32,7 +32,7 @@
              <Match>*.pex|*.psc|*.esp|*.swf|*.lua|*.txt</Match>
         </ZipFile>
         <ZipFile Name="@ModName Basic Icon Pack" RootDir="../iconpack/" Compression="deflate">
-             <Match>*.dds</Match>
+             <Match>*.dds|*.txt</Match>
         </ZipFile>
     </ZipFiles>
 </PapyrusProject>
