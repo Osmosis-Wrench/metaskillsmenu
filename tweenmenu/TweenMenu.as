@@ -226,7 +226,7 @@ class TweenMenu extends MovieClip
 			HideMenu();
 			//skse.CloseMenu("tweenmenu");
 		});
-		var timer:Number = setTimeout(Delegate.create(this, onCompleteTimer), 800)
+		var timer:Number = setTimeout(Delegate.create(this, onCompleteTimer), 600)
 	}
 
 }

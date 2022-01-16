@@ -11,4 +11,6 @@ Excavation LOTD Skill Trees | Legacy of The Dragonborn Perk Menus by wSkeever : 
 Academia LOTD Skill Trees | Legacy of The Dragonborn Perk Menus by wSkeever : Edited by me.
 Companion Companionsskillltree | https://freesvg.org/1549918482 : Edited by me.
 Vampirism Haemophilia | Thecount68 ; eldonisto Eugenio Hansen, OFS, CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0>, via Wikimedia Commons : Edited by me.
-Succubus Succubus Gameplay | Skyrim Asset : Edited by me.
+Vampirism MolagsWillSkillTree | Bethesda Asset from UESP https://images.uesp.net/a/a7/ON-concept-Prince-Molag_Bal-emblem.png : Edited by me.
+Dragonborn DragonbornShoutPerks | Skyrim Asset : Edited by me.
+Leadership Leadership - Custom Skill Framework | Skyrim Asset : Edited by me.
