@@ -45,8 +45,6 @@ class MetaController extends MovieClip
 		
 		option0 = OptionsContainer.option0;
 
-		FocusHandler.instance.setFocus(this,0);
-
 		CenterMouseOver.onRollOver = function()
 		{
 			_parent.onInputRectMouseOver(1);
