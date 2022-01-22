@@ -21,7 +21,7 @@ class OptionsContainer extends MovieClip
 
 	public function setTotalCount(size:Number):Void
 	{
-		trace(size);
+		trace("Set Total Count: "+size);
 		var count = 1;
 		while (count <= size)
 		{

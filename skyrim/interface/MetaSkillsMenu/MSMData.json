@@ -1,0 +1,32 @@
+{
+  "Succubus SoaS": {
+    "Description": "Your ability to drain power from your sexual partners. Your soul grows in strength as you drain and kill mortals through sex acts.",
+    "hidden": 0,
+    "icon_exists": 1,
+    "icon_loc": "data/interface/MetaSkillsMenu/Succubus soas.dds",
+    "Name": "Succubus",
+    "ShowMenuFile": "soas.esp",
+    "ShowMenuForm": "__formData|soas.esp|0xE21",
+    "Skydome": "soas/constellation.nif"
+  },
+  "Unarmoured Defense VicUnarmored": {
+    "Description": "The only thing you can rely on is your own body. This is a skill for unarmoured people (no light/heavy armor).",
+    "hidden": 0,
+    "icon_exists": 1,
+    "icon_loc": "data/interface/MetaSkillsMenu/Unarmoured Defense Perk-Unarmoured.dds",
+    "Name": "Unarmoured Defense",
+    "ShowMenuFile": "Perk-Unarmoured.esp",
+    "ShowMenuForm": "__formData|Perk-Unarmoured.esp|0xD64",
+    "Skydome": "Interface/Unarmored/intUnarmoredskydome.nif"
+  },
+  "Vampirism MolagsWillTree": {
+    "Description": "As you drain your foes, your might as a vampire increases, unlocking terrible powers...",
+    "hidden": 1,
+    "icon_exists": 1,
+    "icon_loc": "data/interface/MetaSkillsMenu/Vampirism MolagsWillSkillTree.dds",
+    "Name": "Vampirism",
+    "ShowMenuFile": "MolagsWillSkillTree.esp",
+    "ShowMenuForm": "__formData|MolagsWillSkillTree.esp|0x80F",
+    "Skydome": "SeaSparrow/Interface/INTMolagsWillPerkSkydome.nif"
+  }
+}

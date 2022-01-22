@@ -35,7 +35,8 @@ class MetaController extends MovieClip
 	{
 		super();
 		id = true;
-		this._visible = false;;
+		this._visible = false;
+		this._alpha = 0;
 		menuMoving = false;
 		currentSelection = 0;
 		selection_shine._alpha = 0;
@@ -96,11 +97,17 @@ class MetaController extends MovieClip
 	private function onLoad():Void
 	{
 		getData("MSMData.json");
+		this._visible = true;
 	}
 	
 	public function readyToShow(): Void
 	{
-		this._visible = true;
+		var onReadyToShow:Function = Delegate.create(this, function ()
+		{
+			menuMoving = false;
+		});
+		Tween.LinearTween(this,"_alpha",this._alpha,100,0.2,onReadyToShow);
+		
 	}
 
 	private function getData(pathToJsonFile:String):Void
@@ -109,7 +116,6 @@ class MetaController extends MovieClip
 
 		openData.onData = function(jsonData)
 		{
-			trace(getBytesLoaded());
 			var self:MovieClip = _root.MetaController_mc;
 			if (jsonData) 
 			{
@@ -119,23 +125,29 @@ class MetaController extends MovieClip
 				var size = -1; // this is dumb.
 				for (i in o)
 				{
-					size++;
+					var hidden = o[i]["hidden"];
+					if (hidden != 1){
+						size++;
+					}
 				}
 			
 				self.OptionsContainer.setTotalCount(size);
 			
 				for (i in o)
 				{
-					var jcallbackName = i;
-					var jname = o[i]["Name"];
-					var jdescription = o[i]["Description"];
-					var jiconloc;
-					if (o[i]["icon_exists"] == 1)
-					{
-						jiconloc = o[i]["icon_loc"];
+					var hidden = o[i]["hidden"];
+					if (hidden != 1){
+						var jcallbackName = i;
+						var jname = o[i]["Name"];
+						var jdescription = o[i]["Description"];
+						var jiconloc;
+						if (o[i]["icon_exists"] == 1)
+						{
+							jiconloc = o[i]["icon_loc"];
+						}
+						self.OptionsContainer.setOptionObjectInfo(size, jname, jdescription, jiconloc, jcallbackName);
+						size--;
 					}
-					self.OptionsContainer.setOptionObjectInfo(size, jname, jdescription, jiconloc, jcallbackName);
-					size--;
 				}
 			} else {
 				self.OptionsContainer.setOptionObjectInfo(0, "Error", "MSMData.json not found, this could be because you have no Custom Skill Framework mods installed.", "data/interface/MetaSkillsMenu/FAILICON.dds", "FAILFAILFAIL");
@@ -147,7 +159,6 @@ class MetaController extends MovieClip
 
 	function InitExtensions():Void
 	{
-
 	}
 	
 	function onInputRectMouseOver(aiSelection:Number):Void

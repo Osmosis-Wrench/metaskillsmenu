@@ -12,7 +12,9 @@ int OpenCustomSkillMenuKeycode = 0
 bool test = false
 
 event OnConfigInit()
-
+    if OpenCustomSkillMenuKeycode != 0
+        registerforkey(OpenCustomSkillMenuKeycode)
+    endif
 endEvent
 
 Event OnPageReset(string page)
@@ -51,6 +53,16 @@ event OnSelectST()
         JValue.WriteToFile(hiddenCache, hiddenCachePath)
         JValue.Release(data)
         JValue.Release(hiddenCache)
+    endif
+endEvent
+
+event onHighlightST()
+    string[] stateNameFull = StringUtil.Split(GetState(), "___")
+    if stateNameFull.Length > 1
+        string csfName = stateNameFull[1]
+        int data = JValue.ReadFromFile(dataPath)
+        SetInfoText("ESP Name: "+JValue.SolveStr(data, "."+csfName+".ShowMenuFile") +"\n"+ "Icon path: "+JValue.SolveStr(data, "."+csfName+".icon_loc"))
+        jvalue.release(data)
     endif
 endEvent
 
