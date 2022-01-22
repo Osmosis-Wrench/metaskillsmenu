@@ -44,6 +44,8 @@ class MetaController extends MovieClip
 		exit_shine._alpha = 0;
 		
 		option0 = OptionsContainer.option0;
+		
+		FocusHandler.instance.setFocus(this,0);
 
 		CenterMouseOver.onRollOver = function()
 		{
@@ -190,7 +192,6 @@ class MetaController extends MovieClip
 
 	function onInputRectClick(aiSelection:Number):Void
 	{
-		//trace(aiSelection);
 		if (!menuMoving)
 		{
 			if (aiSelection == 2)

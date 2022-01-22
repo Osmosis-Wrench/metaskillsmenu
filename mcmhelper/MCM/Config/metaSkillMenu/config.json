@@ -1,0 +1,18 @@
+{
+    "modName": "metaSkillMenu",
+    "displayName": "Custom Skills Menu",
+    "cursorFillMode": "topToBottom",
+    "content": [
+                {
+                "text": "Keybinds:",
+                "type": "header"
+                },
+                {
+                    "id": "OpenMetaSkillsMenu",
+                    "text": "Show Custom Skills Menu",
+                    "type": "keymap",
+                    "help": "Set a hotkey to quickly open the Custom Skills Menu.",
+                    "ignoreConflicts": true
+                }
+            ]
+}

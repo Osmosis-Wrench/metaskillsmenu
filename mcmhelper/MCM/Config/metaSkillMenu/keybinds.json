@@ -1,0 +1,15 @@
+{
+    "modName": "metaSkillMenu",
+    "keybinds": [
+      {
+        "id": "OpenMetaSkillsMenu",
+        "desc": "Shows Custom Skills Menu.",
+        "action": {
+          "type": "CallFunction",
+          "form": "metaSkillMenu.esp|800",
+          "scriptName": "metaSkillMenuScript",
+          "function": "doOpenMenu()"
+        }
+      }
+    ]
+}

@@ -31,6 +31,7 @@ function msm.returnSkillTreeObject(collection)
             r["Skydome"] = t["Skydome"]
             r["icon_loc"] = "data/interface/MetaSkillsMenu/" .. r["Name"] .. " " .. string.gsub(t["ShowMenuFile"], ".esp", ".dds")
             r["icon_exists"] = 0
+            r["hidden"] = 0
             r["ShowMenuFile"] = t["ShowMenuFile"]
             r["ShowMenuForm"] = "__formData|"..t["ShowMenuFile"].."|"..t["ShowMenuId"] -- construct formdata record
             ret[collection[x]] = r

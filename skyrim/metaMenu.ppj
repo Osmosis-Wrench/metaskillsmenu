@@ -15,21 +15,20 @@
     <Imports>
         <Import>@MyProject\Scripts\Source</Import>
         <Import>https://github.com/eeveelo/PapyrusUtil/tree/master/Scripts/Source</Import>
-        <Import>https://github.com/MrOctopus/nl_mcm/tree/main/main/scripts/source</Import>
         <Import>https://github.com/MrOctopus/nl_util/tree/main/dist/scripts/source</Import>
-	    <Import>https://github.com/MrOctopus/nl_mcm/tree/main/main/scripts/source</Import>
         <Import>https://github.com/MrOctopus/nl_online/tree/main/skyui/source</Import>
         <Import>https://github.com/MrOctopus/nl_online/tree/main/skse64/source</Import>
         <Import>https://github.com/MrOctopus/nl_online/tree/main/sse/source</Import>
         <Import>https://github.com/MrOctopus/nl_online/tree/main/jcontainersse/source</Import>
         <Import>https://github.com/Ryan-rsm-McKenzie/ConsoleUtilSSE/tree/master/src/papyrus</Import>
+        <Import>https://github.com/Exit-9B/MCM-Helper/tree/main/dist/Data/Source/Scripts</Import>
     </Imports>
     <Folders>
         <Folder>@MyProject\Scripts\Source</Folder>
     </Folders>
     <ZipFiles Output="@Dist">
         <ZipFile Name="@ModName - @Version" RootDir="@MyProject" Compression="deflate">
-             <Match>*.pex|*.psc|*.esp|*.swf|*.lua|*.txt</Match>
+             <Match>*.pex|*.psc|*.esp|CustomMetaMenu.swf|tweenmenu.swf|*.lua|*.txt|*.json</Match>
         </ZipFile>
         <ZipFile Name="@ModName Basic Icon Pack" RootDir="../iconpack/" Compression="deflate">
              <Match>*.dds|*.txt</Match>
