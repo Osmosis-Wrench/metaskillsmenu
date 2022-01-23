@@ -106,7 +106,6 @@ function doCloseMenu()
 endFunction
 
 event SelectedMenu(string eventName, string strArg, float numArg, Form sender)
-    writelog("SelectedMenu")
     int MSMData = JValue.readFromFile("data/interface/MetaSkillsMenu/MSMData.json")
     int modObject = JMap.getObj(MSMData, strArg)
     int formid = JMap.getInt(modObject, "ShowMenuId")
