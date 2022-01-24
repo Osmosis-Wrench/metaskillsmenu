@@ -17,13 +17,19 @@ function startup()
 endfunction
 
 bool function doSafetyCheck()
-    if jcontainers.fileExistsAtPath("data/NetScriptFramework/Plugins/CustomSkills.dll")
-        b_CustomSkillsExists = true
-        return true
-    Else
+    If !jcontainers.isInstalled()
+        Writelog("JContainers is not detected!\nMake sure you are using JContainers v4.1.2 which is the last version to support Skyrim 1.5.39\n\n(jcontainers.isInstalled() did not return true)", 2)
         b_CustomSkillsExists = false
-        Writelog("Custom Skill Framework by Meh321 was not detected, make sure the mod is installed correctly.\n(Failed to find CustomSkills.dll)", 2)
         return false
+    else
+        if jcontainers.fileExistsAtPath("data/NetScriptFramework/Plugins/CustomSkills.dll")
+            b_CustomSkillsExists = true
+            return true
+        Else
+            b_CustomSkillsExists = false
+            Writelog("Custom Skill Framework by Meh321 was not detected, make sure the mod is installed correctly.\n(Failed to find CustomSkills.dll)", 2)
+            return false
+        endif
     endif
 endFunction
 
