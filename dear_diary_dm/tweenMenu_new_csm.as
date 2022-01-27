@@ -178,6 +178,7 @@ class TweenMenu extends MovieClip
    {
       gotoAndStop("showMenu");
       BottomBarTweener_mc._alpha = 100;
+      GameDelegate.call("HighlightMenu", [1]);
    }
 
    function HideMenu(): Void
@@ -198,6 +199,8 @@ class TweenMenu extends MovieClip
 			var menuFrameIdx: Number = 0;
 			if (details.navEquivalent == NavigationCode.UP) {
 				menuFrameIdx = 1;
+         } else if (details.navEquivalent == NavigationCode.GAMEPAD_X) {
+				menuFrameIdx = 5;
 			} else if (details.navEquivalent == NavigationCode.LEFT) {
 				menuFrameIdx = 2;
 			} else if (details.navEquivalent == NavigationCode.RIGHT) {
@@ -207,9 +210,17 @@ class TweenMenu extends MovieClip
 			}
 			
 			if (menuFrameIdx > 0) {
-				if (menuFrameIdx == Selections_mc._currentframe - 1) {
+				if (menuFrameIdx == 5 && menuFrameIdx == Selections_mc._currentframe - 1)
+				{
+					GameDelegate.call("PlaySound",["UISkillsForward"]);
+					handleCustomSkillMenuOpen();
+				}else if (menuFrameIdx == Selections_mc._currentframe - 1) {
 					GameDelegate.call("OpenHighlightedMenu", [menuFrameIdx]);
-				} else {
+				} else if (menuFrameIdx == 5){
+					Selections_mc.gotoAndStop(TweenMenu.FrameToLabelMap[menuFrameIdx]);
+					GameDelegate.call("HighlightMenu", [1]);
+				}
+				else {
 					Selections_mc.gotoAndStop(TweenMenu.FrameToLabelMap[menuFrameIdx]);
 					GameDelegate.call("HighlightMenu", [menuFrameIdx]);
 				}
@@ -225,6 +236,18 @@ class TweenMenu extends MovieClip
 		if (bLevelUp) 
 			Selections_mc.SkillsText_mc.textField.SetText("$LEVEL UP");
 		return true;
+	}
+
+   function handleCustomSkillMenuOpen():Void
+	{
+		GameDelegate.call("HighlightMenu", [5]);
+		var onCompleteTimer:Function = Delegate.create(this, function ()
+		{
+			skse.SendModEvent("MetaSkillMenu_Open");
+			HideMenu();
+			//skse.CloseMenu("tweenmenu");
+		});
+		var timer:Number = setTimeout(Delegate.create(this, onCompleteTimer), 600)
 	}
 
     static function trim(str): String {
