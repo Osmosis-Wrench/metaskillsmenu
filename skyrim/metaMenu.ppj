@@ -33,5 +33,8 @@
         <ZipFile Name="@ModName Basic Icon Pack" RootDir="../iconpack/" Compression="deflate">
              <Match>*.dds|*.txt</Match>
         </ZipFile>
+        <ZipFile Name="@ModName Dear Diary Dark Mode Patch v1.0" RootDir="../dear_diary_dm/dist/" Compression="deflate">
+             <Match>*.swf</Match>
+        </ZipFile>
     </ZipFiles>
 </PapyrusProject>
