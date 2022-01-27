@@ -1,16 +1,13 @@
-﻿import gfx.io.GameDelegate;
+import gfx.io.GameDelegate;
 import gfx.managers.FocusHandler;
 import gfx.ui.InputDetails;
 import gfx.ui.NavigationCode;
 import Shared.GlobalFunc;
 import Components.Meter;
-import mx.utils.Delegate;
-import skyui.util.Tween;
-import skse;
 
 class TweenMenu extends MovieClip
 {
-	static var FrameToLabelMap: Array = ["None", "Skills", "Magic", "Inventory", "Map", "CustomSkills"];
+	static var FrameToLabelMap: Array = ["None", "Skills", "Magic", "Inventory", "Map"];
 	
   /*Stage Elements */
 	var BottomBarTweener_mc: MovieClip;
@@ -19,8 +16,6 @@ class TweenMenu extends MovieClip
 	var MapInputRect: MovieClip;
 	var Selections_mc: MovieClip;
 	var SkillsInputRect: MovieClip;
-	var CustomSkillsInputRect: MovieClip;
-	var hint_cskill: TextField;
 	
   /* Variables */
 	var bClosing: Boolean;
@@ -48,7 +43,6 @@ class TweenMenu extends MovieClip
 		MovieClip(BottomBarTweener_mc).Lock("B");
 		SkillsInputRect.onRollOver = function ()
 		{
-			trace(1);
 			_parent.onInputRectMouseOver(1);
 		};
 		SkillsInputRect.onMouseDown = function ()
@@ -83,23 +77,10 @@ class TweenMenu extends MovieClip
 			if (Mouse.getTopMostEntity() == this) 
 				_parent.onInputRectClick(4);
 		};
-		CustomSkillsInputRect.onRollOver = function()
-		{
-			_parent.onInputRectMouseOver(5);
-		};
-		CustomSkillsInputRect.onMouseDown = function ()
-		{
-			if (Mouse.getTopMostEntity() == this) 
-				_parent.onInputRectClick(5);
-		};
 	}
 
 	function onInputRectMouseOver(aiSelection: Number): Void
 	{
-		if (!bClosing && aiSelection == 5){
-			Selections_mc.gotoAndStop(TweenMenu.FrameToLabelMap[aiSelection]);
-			GameDelegate.call("HighlightMenu", [1]);
-		}
 		if (!bClosing && Selections_mc._currentframe - 1 != aiSelection) {
 			Selections_mc.gotoAndStop(TweenMenu.FrameToLabelMap[aiSelection]);
 			GameDelegate.call("HighlightMenu", [aiSelection]);
@@ -108,16 +89,11 @@ class TweenMenu extends MovieClip
 
 	function onInputRectClick(aiSelection: Number): Void
 	{
-		if (aiSelection == 5){
-			GameDelegate.call("PlaySound",["UISkillsForward"]);
-			handleCustomSkillMenuOpen();
-			return;
-		}
 		if (bClosing) 
 			return;
 		GameDelegate.call("OpenHighlightedMenu", [aiSelection]);
 	}
-	
+
 	function ResetStatsButton(): Void
 	{
 		Selections_mc.SkillsText_mc.textField.SetText("$SKILLS");
@@ -157,7 +133,6 @@ class TweenMenu extends MovieClip
 	{
 		gotoAndStop("showMenu");
 		BottomBarTweener_mc._alpha = 100;
-		GameDelegate.call("HighlightMenu", [1]);
 	}
 
 	function HideMenu(): Void
@@ -170,16 +145,13 @@ class TweenMenu extends MovieClip
 	{
 		GameDelegate.call("CloseMenu", []);
 	}
-	//static var FrameToLabelMap: Array = ["None", "Skills", "Magic", "Inventory", "Map", "CustomSkills"];
-	
+
 	function handleInput(details: InputDetails, pathToFocus: Array): Boolean
 	{
 		if (!bClosing && GlobalFunc.IsKeyPressed(details)) {
 			var menuFrameIdx: Number = 0;
 			if (details.navEquivalent == NavigationCode.UP) {
 				menuFrameIdx = 1;
-			} else if (details.navEquivalent == NavigationCode.GAMEPAD_X) {
-				menuFrameIdx = 5;
 			} else if (details.navEquivalent == NavigationCode.LEFT) {
 				menuFrameIdx = 2;
 			} else if (details.navEquivalent == NavigationCode.RIGHT) {
@@ -189,17 +161,9 @@ class TweenMenu extends MovieClip
 			}
 			
 			if (menuFrameIdx > 0) {
-				if (menuFrameIdx == 5 && menuFrameIdx == Selections_mc._currentframe - 1)
-				{
-					GameDelegate.call("PlaySound",["UISkillsForward"]);
-					handleCustomSkillMenuOpen();
-				}else if (menuFrameIdx == Selections_mc._currentframe - 1) {
+				if (menuFrameIdx == Selections_mc._currentframe - 1) {
 					GameDelegate.call("OpenHighlightedMenu", [menuFrameIdx]);
-				} else if (menuFrameIdx == 5){
-					Selections_mc.gotoAndStop(TweenMenu.FrameToLabelMap[menuFrameIdx]);
-					GameDelegate.call("HighlightMenu", [1]);
-				}
-				else {
+				} else {
 					Selections_mc.gotoAndStop(TweenMenu.FrameToLabelMap[menuFrameIdx]);
 					GameDelegate.call("HighlightMenu", [menuFrameIdx]);
 				}
@@ -215,18 +179,6 @@ class TweenMenu extends MovieClip
 		if (bLevelUp) 
 			Selections_mc.SkillsText_mc.textField.SetText("$LEVEL UP");
 		return true;
-	}
-	
-	function handleCustomSkillMenuOpen():Void
-	{
-		GameDelegate.call("HighlightMenu", [5]);
-		var onCompleteTimer:Function = Delegate.create(this, function ()
-		{
-			skse.SendModEvent("MetaSkillMenu_Open");
-			HideMenu();
-			//skse.CloseMenu("tweenmenu");
-		});
-		var timer:Number = setTimeout(Delegate.create(this, onCompleteTimer), 600)
 	}
 
 }
