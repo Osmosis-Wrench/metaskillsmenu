@@ -7,6 +7,7 @@ import Components.Meter;
 import mx.utils.Delegate;
 import skyui.util.Tween;
 import skse;
+import JSON;
 
 class TweenMenu extends MovieClip
 {
@@ -22,6 +23,7 @@ class TweenMenu extends MovieClip
 	var Background: MovieClip;
 	var CustomSkillsInputRect:MovieClip;
 	var hint_cskill:TextField;
+	var cshint_mc: MovieClip;
 
 	/* Variables */
 	var bClosing:Boolean;
@@ -31,6 +33,8 @@ class TweenMenu extends MovieClip
 	function TweenMenu()
 	{
 		super();
+		cshint_mc = Selections_mc.cshint_mc;
+		cshint_mc._alpha = 100;
 		Selections_mc = Selections_mc;
 		BottomBarTweener_mc = BottomBarTweener_mc;
 		bClosing = false;
@@ -41,6 +45,23 @@ class TweenMenu extends MovieClip
 		{
 			TweenMenu.BG_ALPHA = parseFloat(TweenMenu.ParseConfig(str, "fTabMenuAlpha"));
 		};
+		getData("MetaSkillsMenu/MSM_FLASH_SETTINGS.json");
+	}
+
+	function getData(pathToJsonFile:String):Void
+	{
+		var openData:LoadVars = new LoadVars();
+
+		openData.onData = function(jsonData)
+		{
+			if(jsonData)
+			{
+				var o:Object = JSON.parse(jsonData);
+				o["hide_hint"] == 0 ? _root.TweenMenu_mc.cshint_mc._alpha = 100 : _root.TweenMenu_mc.cshint_mc._alpha = 0;
+			}
+		}
+
+		openData.load(pathToJsonFile);
 	}
 
 	function InitExtensions():Void
@@ -254,7 +275,12 @@ class TweenMenu extends MovieClip
 			}
 			else if (details.navEquivalent == NavigationCode.ENTER && Selections_mc._currentframe > 1)
 			{
-				GameDelegate.call("OpenHighlightedMenu",[Selections_mc._currentframe - 1]);
+				if (Selections_mc._currentframe == 6){
+					GameDelegate.call("PlaySound",["UISkillsForward"]);
+					handleCustomSkillMenuOpen();
+				} else {
+					GameDelegate.call("OpenHighlightedMenu",[Selections_mc._currentframe - 1]);
+				}
 			}
 			else if (details.navEquivalent == NavigationCode.TAB)
 			{

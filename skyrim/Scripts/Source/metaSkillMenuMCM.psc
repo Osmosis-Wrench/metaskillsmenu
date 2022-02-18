@@ -7,6 +7,7 @@ metaSkillMenuScript property metaSkillMenuMain auto
 
 string hiddenCachePath = "data/interface/MetaSkillsMenu/MSMHidden.json"
 string dataPath = "data/interface/MetaSkillsMenu/MSMData.json"
+string flashDataPath = "data/interface/MetaSkillsMenu/MSM_FLASH_SETTINGS.json"
 
 int OpenCustomSkillMenuKeycode = 0
 bool test = false
@@ -21,6 +22,11 @@ Event OnPageReset(string page)
     AddHeaderOption("KeyBinds: ")
     AddHeaderOption("Hidden: ")
     AddKeyMapOptionST("RebindCSMKeycode", "Show Custom Skills Menu", OpenCustomSkillMenuKeycode)
+    SetCursorPosition(4)
+    if (Jcontainers.fileExistsAtPath(flashDataPath))
+        int data1 = JValue.ReadFromFile(flashDataPath)
+        AddToggleOptionST("HintToggleState", "Hide Hint", jmap.getInt(data1, "hide_hint") as bool)
+    endif
     SetCursorPosition(3)
     SetCursorFillMode(TOP_TO_BOTTOM)
     
@@ -37,6 +43,21 @@ Event OnPageReset(string page)
         AddHeaderOption("Error, CSM database files not found.")
     endif
 endEvent
+
+state HintToggleState
+    event OnSelectST()
+        if (Jcontainers.fileExistsAtPath(flashDataPath))
+            int data = JValue.ReadFromFile(flashDataPath)
+            jmap.setInt(data, "hide_hint", (!jmap.getInt(data, "hide_hint") as bool) as int)
+            Jvalue.WriteToFile(data, flashDataPath)
+            SetToggleOptionValueST(jmap.getInt(data, "hide_hint") as bool,false,"HintToggleState")
+        endif
+    endEvent
+
+    event onHighlightST()
+        SetInfoText("Hide the hint in the tweenmenu telling you how to access the custom skills menu.")
+    endEvent
+endState 
 
 event OnSelectST()
     string[] stateNameFull = StringUtil.Split(GetState(), "___")
