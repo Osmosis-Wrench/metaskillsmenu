@@ -9,6 +9,7 @@
     <Variables>
         <Variable Name="ModName" Value="Custom Skill Menu"/>
         <Variable Name="Version" Value="1.1.5"/>
+        <Variable Name="SkinVersion" Value="1.3"/>
         <Variable Name="MyProject" Value="."/>
         <Variable Name="Dist" Value="../bin"/>
     </Variables>
@@ -33,10 +34,10 @@
         <ZipFile Name="@ModName Basic Icon Pack" RootDir="../iconpack/" Compression="deflate">
              <Match>*.dds|*.txt</Match>
         </ZipFile>
-        <ZipFile Name="@ModName Dear Diary Dark Mode Patch v1.1" RootDir="../dear_diary_dm/dist/" Compression="deflate">
+        <ZipFile Name="@ModName Dear Diary Dark Mode Patch @SkinVersion" RootDir="../dear_diary_dm/dist/" Compression="deflate">
              <Match>*.swf</Match>
         </ZipFile>
-        <ZipFile Name="@ModName Dear Diary Patch v1.1" RootDir="../dear_diary_lm/dist/" Compression="deflate">
+        <ZipFile Name="@ModName Dear Diary Patch @SkinVersion" RootDir="../dear_diary_lm/dist/" Compression="deflate">
              <Match>*.swf|*.txt</Match>
         </ZipFile>
     </ZipFiles>
