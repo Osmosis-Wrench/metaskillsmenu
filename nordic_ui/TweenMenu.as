@@ -245,7 +245,6 @@ class TweenMenu extends MovieClip
 	
 	function handleCustomSkillMenuOpen():Void
 	{
-		GetURL("https://Nexusmods.com");
 		GameDelegate.call("HighlightMenu", [5]);
 		var onCompleteTimer:Function = Delegate.create(this, function ()
 		{

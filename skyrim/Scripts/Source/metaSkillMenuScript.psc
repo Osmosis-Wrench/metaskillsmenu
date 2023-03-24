@@ -18,11 +18,11 @@ endfunction
 
 bool function doSafetyCheck()
     If !jcontainers.isInstalled()
-        Writelog("JContainers is not detected!\nMake sure you are using JContainers SE v4.1.13 which is the last version to support Skyrim 1.5.39\n\n(jcontainers.isInstalled() did not return true)", 2)
+        Writelog("JContainers is not detected!\nMake sure you are using the correct JContainers version for your game version.\n\n(jcontainers.isInstalled() did not return true)", 2)
         b_CustomSkillsExists = false
         return false
     else
-        if jcontainers.fileExistsAtPath("data/NetScriptFramework/Plugins/CustomSkills.dll")
+        if CustomSkills.GetAPIVersion() || jcontainers.fileExistsAtPath("data/NetScriptFramework/Plugins/CustomSkills.dll")
             b_CustomSkillsExists = true
             return true
         Else

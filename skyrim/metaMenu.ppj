@@ -8,7 +8,7 @@
     Zip="true">
     <Variables>
         <Variable Name="ModName" Value="Custom Skill Menu"/>
-        <Variable Name="Version" Value="1.1.5"/>
+        <Variable Name="Version" Value="1.1.6"/>
         <Variable Name="SkinVersion" Value="1.3"/>
         <Variable Name="MyProject" Value="."/>
         <Variable Name="Dist" Value="../bin"/>
@@ -21,8 +21,9 @@
         <Import>https://github.com/MrOctopus/nl_online/tree/main/skse64/source</Import>
         <Import>https://github.com/MrOctopus/nl_online/tree/main/sse/source</Import>
         <Import>https://github.com/MrOctopus/nl_online/tree/main/jcontainersse/source</Import>
-        <Import>https://github.com/Ryan-rsm-McKenzie/ConsoleUtilSSE/tree/master/src/papyrus</Import>
+        <Import>https://github.com/clayne/ConsoleUtilSSE/tree/master/src/papyrus</Import>
         <Import>https://github.com/Exit-9B/MCM-Helper/tree/main/dist/Data/Source/Scripts</Import>
+        <Import>https://github.com/Exit-9B/CustomSkills/tree/main/scripts</Import>
     </Imports>
     <Folders>
         <Folder>@MyProject\Scripts\Source</Folder>
