@@ -26,14 +26,29 @@ function msm.returnSkillTreeObject(collection)
         end
         if t["Name"]and t["MSM_DoNotShow"] == nil then
             local r = JMap.object()
+            r["test"] = collection[x]
             r["Name"] = t["Name"]
             r["Description"] = t["Description"]
             r["Skydome"] = t["Skydome"]
-            r["icon_loc"] = "data/interface/MetaSkillsMenu/" .. r["Name"] .. " " .. string.gsub(t["ShowMenuFile"], ".esp", ".dds")
+            if t["ShowMenuFile"] == nil or t["LevelFile"] == "" then
+                -- this will be the default action if on new CSF as ShowMenuFile is no longer needed.
+                if t["LevelFile"] == nil or t["LevelFile"] == "" then
+                    r["ShowMenuFile"] = t["RatioFile"]
+                else
+                    r["ShowMenuFile"] = t["LevelFile"]
+                end
+                r["ShowMenuForm"] = 0
+                r["CSFSKSE"] = 1
+            else
+                r["ShowMenuFile"] = t["ShowMenuFile"]
+                r["ShowMenuForm"] = "__formData|"..t["ShowMenuFile"].."|"..t["ShowMenuId"]
+                r["CSFSKSE"] = 0
+            end
+            r["icon_loc"] = "data/interface/MetaSkillsMenu/" .. r["Name"] .. " " .. string.gsub(r["ShowMenuFile"], ".esp", ".dds")
             r["icon_exists"] = 0
             r["hidden"] = 0
-            r["ShowMenuFile"] = t["ShowMenuFile"]
-            r["ShowMenuForm"] = "__formData|"..t["ShowMenuFile"].."|"..t["ShowMenuId"] -- construct formdata record
+
+             -- construct formdata record
             ret[collection[x]] = r
         end
     end

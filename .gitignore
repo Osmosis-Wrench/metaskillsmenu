@@ -4,3 +4,4 @@ skyrim/.vscode/launch.json
 skyrim/.vscode/tasks.json
 *.bat
 *.pex
+.vscode/settings.json
